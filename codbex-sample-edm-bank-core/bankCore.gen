@@ -1,32 +1,65 @@
 {
   "tablePrefix": "SAMPLE_BANK_",
+  "fileName": "bankCore",
+  "genFolderName": "bankCore",
+  "dataSource": "DefaultDB",
+  "roles": [],
+  "tprefix": "bankCore-model",
   "projectName": "codbex-sample-edm-bank-core",
   "workspaceName": "workspace",
   "filePath": "bankCore.model",
   "templateId": "template-application-data-v2/template/template.js",
-  "fileName": "bankCore",
-  "genFolderName": "bankCore",
-  "dataSource": "DefaultDB",
   "perspectives": {
-    "entities": {
+    "customers": {
       "views": [
-        "Customer",
+        "Customer"
+      ],
+      "name": "customers",
+      "label": "customers",
+      "header": "",
+      "order": "10",
+      "navId": "",
+      "icon": "/services/web/resources/unicons/users-alt.svg",
+      "role": ""
+    },
+    "accounts": {
+      "views": [
         "Account",
-        "Transaction",
-        "Document",
+        "Transaction"
+      ],
+      "name": "accounts",
+      "label": "accounts",
+      "header": "",
+      "order": "20",
+      "navId": "",
+      "icon": "/services/web/resources/unicons/university.svg",
+      "role": ""
+    },
+    "documents": {
+      "views": [
+        "Document"
+      ],
+      "name": "documents",
+      "label": "documents",
+      "header": "",
+      "order": "30",
+      "navId": "",
+      "icon": "/services/web/resources/unicons/file-alt.svg",
+      "role": ""
+    },
+    "auditLogs": {
+      "views": [
         "AuditLog"
       ],
-      "name": "entities",
-      "label": "entities",
+      "name": "auditLogs",
+      "label": "auditLogs",
       "header": "",
-      "order": "100",
+      "order": "99",
       "navId": "",
-      "icon": "/services/web/resources/unicons/copy.svg",
+      "icon": "/services/web/resources/unicons/shield-check.svg",
       "role": ""
     }
   },
-  "roles": [],
-  "tprefix": "bankCore-model",
   "models": [
     {
       "properties": [
@@ -207,7 +240,7 @@
           "inputRule": ""
         },
         {
-          "dataDefaultValue": "0.0",
+          "dataDefaultValue": "0",
           "dataName": "CUSTOMER_RISKSCORE",
           "dataNullable": true,
           "dataType": "REAL",
@@ -319,11 +352,11 @@
       "multilingual": "false",
       "name": "Customer",
       "perspectiveHeader": "",
-      "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-      "perspectiveLabel": "Entities",
-      "perspectiveName": "entities",
+      "perspectiveIcon": "/services/web/resources/unicons/users-alt.svg",
+      "perspectiveLabel": "Customers",
+      "perspectiveName": "customers",
       "perspectiveNavId": "",
-      "perspectiveOrder": "100",
+      "perspectiveOrder": "10",
       "perspectiveRole": "",
       "title": "Customer",
       "tooltip": "Customer",
@@ -402,7 +435,7 @@
           "widgetType": "DROPDOWN",
           "relationshipName": "Account_Customer",
           "relationshipEntityName": "Customer",
-          "relationshipEntityPerspectiveName": "entities",
+          "relationshipEntityPerspectiveName": "customers",
           "relationshipEntityPerspectiveLabel": "Entities",
           "dataNotNull": true,
           "dataAutoIncrement": false,
@@ -411,7 +444,7 @@
           "isRequiredProperty": false,
           "isCalculatedProperty": false,
           "widgetLabel": "customerId",
-          "widgetDropdownUrl": "/services/ts/codbex-sample-edm-bank-core/gen/bankCore/api/entities/CustomerService.ts",
+          "widgetDropdownUrl": "/services/ts/codbex-sample-edm-bank-core/gen/bankCore/api/customers/CustomerService.ts",
           "dataTypeJava": "long",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -444,7 +477,7 @@
           "inputRule": ""
         },
         {
-          "dataDefaultValue": "0.0",
+          "dataDefaultValue": "0",
           "dataLength": "15",
           "dataName": "ACCOUNT_BALANCE",
           "dataNullable": true,
@@ -471,7 +504,7 @@
           "inputRule": ""
         },
         {
-          "dataDefaultValue": "0.0",
+          "dataDefaultValue": "0",
           "dataLength": "15",
           "dataName": "ACCOUNT_OVERDRAFTLIMIT",
           "dataNullable": true,
@@ -638,11 +671,11 @@
       "multilingual": "false",
       "name": "Account",
       "perspectiveHeader": "",
-      "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-      "perspectiveLabel": "Entities",
-      "perspectiveName": "entities",
+      "perspectiveIcon": "/services/web/resources/unicons/university.svg",
+      "perspectiveLabel": "Accounts",
+      "perspectiveName": "accounts",
       "perspectiveNavId": "",
-      "perspectiveOrder": "100",
+      "perspectiveOrder": "20",
       "perspectiveRole": "",
       "title": "Account",
       "tooltip": "Account",
@@ -696,7 +729,7 @@
             "widgetType": "DROPDOWN",
             "relationshipName": "Account_Customer",
             "relationshipEntityName": "Customer",
-            "relationshipEntityPerspectiveName": "entities",
+            "relationshipEntityPerspectiveName": "customers",
             "relationshipEntityPerspectiveLabel": "Entities",
             "dataNotNull": true,
             "dataAutoIncrement": false,
@@ -705,7 +738,7 @@
             "isRequiredProperty": false,
             "isCalculatedProperty": false,
             "widgetLabel": "customerId",
-            "widgetDropdownUrl": "/services/ts/codbex-sample-edm-bank-core/gen/bankCore/api/entities/CustomerService.ts",
+            "widgetDropdownUrl": "/services/ts/codbex-sample-edm-bank-core/gen/bankCore/api/customers/CustomerService.ts",
             "dataTypeJava": "long",
             "dataTypeTypescript": "number",
             "inputRule": ""
@@ -738,7 +771,7 @@
             "inputRule": ""
           },
           {
-            "dataDefaultValue": "0.0",
+            "dataDefaultValue": "0",
             "dataLength": "15",
             "dataName": "ACCOUNT_BALANCE",
             "dataNullable": true,
@@ -765,7 +798,7 @@
             "inputRule": ""
           },
           {
-            "dataDefaultValue": "0.0",
+            "dataDefaultValue": "0",
             "dataLength": "15",
             "dataName": "ACCOUNT_OVERDRAFTLIMIT",
             "dataNullable": true,
@@ -950,16 +983,18 @@
           "dataType": "BIGINT",
           "description": "",
           "name": "accountId",
+          "relationshipCardinality": "1_n",
+          "relationshipName": "Transaction_Account",
+          "relationshipType": "COMPOSITION",
           "tooltip": "",
           "widgetDropDownKey": "id",
           "widgetDropDownValue": "iban",
-          "widgetIsMajor": true,
+          "widgetIsMajor": false,
           "widgetLength": "20",
           "widgetSize": "",
           "widgetType": "DROPDOWN",
-          "relationshipName": "Transaction_Account",
           "relationshipEntityName": "Account",
-          "relationshipEntityPerspectiveName": "entities",
+          "relationshipEntityPerspectiveName": "accounts",
           "relationshipEntityPerspectiveLabel": "Entities",
           "dataNotNull": true,
           "dataAutoIncrement": false,
@@ -968,7 +1003,7 @@
           "isRequiredProperty": false,
           "isCalculatedProperty": false,
           "widgetLabel": "accountId",
-          "widgetDropdownUrl": "/services/ts/codbex-sample-edm-bank-core/gen/bankCore/api/entities/AccountService.ts",
+          "widgetDropdownUrl": "/services/ts/codbex-sample-edm-bank-core/gen/bankCore/api/accounts/AccountService.ts",
           "dataTypeJava": "long",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -1052,7 +1087,7 @@
           "inputRule": ""
         },
         {
-          "dataDefaultValue": "0.0",
+          "dataDefaultValue": "0",
           "dataName": "TRANSACTION_FEE",
           "dataNullable": true,
           "dataType": "DOUBLE",
@@ -1163,21 +1198,23 @@
       "multilingual": "false",
       "name": "Transaction",
       "perspectiveHeader": "",
-      "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-      "perspectiveLabel": "Entities",
-      "perspectiveName": "entities",
+      "perspectiveIcon": "/services/web/resources/unicons/university.svg",
+      "perspectiveLabel": "Accounts",
+      "perspectiveName": "accounts",
       "perspectiveNavId": "",
-      "perspectiveOrder": "100",
+      "perspectiveOrder": "20",
       "perspectiveRole": "",
       "title": "Transaction",
       "tooltip": "Transaction",
-      "type": "PRIMARY",
+      "type": "DEPENDENT",
       "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "id"
       ],
       "primaryKeysString": "id",
+      "masterEntity": "Account",
+      "masterEntityId": "accountId",
       "hasDropdowns": true,
       "hasDates": true
     },
@@ -1221,7 +1258,7 @@
           "widgetType": "DROPDOWN",
           "relationshipName": "Document_Customer",
           "relationshipEntityName": "Customer",
-          "relationshipEntityPerspectiveName": "entities",
+          "relationshipEntityPerspectiveName": "customers",
           "relationshipEntityPerspectiveLabel": "Entities",
           "dataNotNull": true,
           "dataAutoIncrement": false,
@@ -1230,7 +1267,7 @@
           "isRequiredProperty": false,
           "isCalculatedProperty": false,
           "widgetLabel": "customerId",
-          "widgetDropdownUrl": "/services/ts/codbex-sample-edm-bank-core/gen/bankCore/api/entities/CustomerService.ts",
+          "widgetDropdownUrl": "/services/ts/codbex-sample-edm-bank-core/gen/bankCore/api/customers/CustomerService.ts",
           "dataTypeJava": "long",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -1377,11 +1414,11 @@
       "multilingual": "false",
       "name": "Document",
       "perspectiveHeader": "",
-      "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-      "perspectiveLabel": "Entities",
-      "perspectiveName": "entities",
+      "perspectiveIcon": "/services/web/resources/unicons/file-alt.svg",
+      "perspectiveLabel": "Documents",
+      "perspectiveName": "documents",
       "perspectiveNavId": "",
-      "perspectiveOrder": "100",
+      "perspectiveOrder": "30",
       "perspectiveRole": "",
       "title": "Document",
       "tooltip": "Document",
@@ -1582,11 +1619,11 @@
       "multilingual": "false",
       "name": "AuditLog",
       "perspectiveHeader": "",
-      "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-      "perspectiveLabel": "Entities",
-      "perspectiveName": "entities",
+      "perspectiveIcon": "/services/web/resources/unicons/shield-check.svg",
+      "perspectiveLabel": "AuditLogs",
+      "perspectiveName": "auditLogs",
       "perspectiveNavId": "",
-      "perspectiveOrder": "100",
+      "perspectiveOrder": "99",
       "perspectiveRole": "",
       "title": "AuditLog",
       "tooltip": "AuditLog",

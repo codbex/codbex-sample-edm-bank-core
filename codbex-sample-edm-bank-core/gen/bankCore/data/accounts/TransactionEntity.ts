@@ -57,7 +57,7 @@ export class TransactionEntity {
     @Column({
         name: 'TRANSACTION_FEE',
         type: 'double',
-        defaultValue: `0.0`,
+        defaultValue: `0`,
         nullable: true,
     })
     public fee?: number;

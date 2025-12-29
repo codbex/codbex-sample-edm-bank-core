@@ -20,7 +20,7 @@ export class TransactionRepository extends Repository<TransactionEntity> {
     }
 
     protected override async triggerEvent(data: EntityEvent<TransactionEntity>): Promise<void> {
-        const triggerExtensions = await Extensions.loadExtensionModules('codbex-sample-edm-bank-core-entities-Transaction', ['trigger']);
+        const triggerExtensions = await Extensions.loadExtensionModules('codbex-sample-edm-bank-core-accounts-Transaction', ['trigger']);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -28,6 +28,6 @@ export class TransactionRepository extends Repository<TransactionEntity> {
                 console.error(error);
             }
         });
-        Producer.topic('codbex-sample-edm-bank-core-entities-Transaction').send(JSON.stringify(data));
+        Producer.topic('codbex-sample-edm-bank-core-accounts-Transaction').send(JSON.stringify(data));
     }
 }

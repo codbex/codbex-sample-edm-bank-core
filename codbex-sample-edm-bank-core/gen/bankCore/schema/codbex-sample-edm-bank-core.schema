@@ -47,7 +47,7 @@
                     },
                     {
                         "type": "REAL",
-                        "defaultValue": "0.0",
+                        "defaultValue": "0",
                         "nullable": true,
                         "name": "CUSTOMER_RISKSCORE"
                     },
@@ -102,7 +102,7 @@
                         "length": 15,
                         "precision": "15",
                         "scale": "2",
-                        "defaultValue": "0.0",
+                        "defaultValue": "0",
                         "nullable": true,
                         "name": "ACCOUNT_BALANCE"
                     },
@@ -111,7 +111,7 @@
                         "length": 15,
                         "precision": "15",
                         "scale": "2",
-                        "defaultValue": "0.0",
+                        "defaultValue": "0",
                         "nullable": true,
                         "name": "ACCOUNT_OVERDRAFTLIMIT"
                     },
@@ -179,7 +179,7 @@
                     },
                     {
                         "type": "DOUBLE",
-                        "defaultValue": "0.0",
+                        "defaultValue": "0",
                         "nullable": true,
                         "name": "TRANSACTION_FEE"
                     },

@@ -76,7 +76,7 @@ export class CustomerEntity {
     @Column({
         name: 'CUSTOMER_RISKSCORE',
         type: 'float',
-        defaultValue: `0.0`,
+        defaultValue: `0`,
         nullable: true,
     })
     public riskScore?: number;

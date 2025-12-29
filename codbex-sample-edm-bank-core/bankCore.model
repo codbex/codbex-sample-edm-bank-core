@@ -100,7 +100,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "dataDefaultValue": "0.0",
+                        "dataDefaultValue": "0",
                         "dataName": "CUSTOMER_RISKSCORE",
                         "dataNullable": "true",
                         "dataType": "REAL",
@@ -168,11 +168,11 @@
                 "multilingual": "false",
                 "name": "Customer",
                 "perspectiveHeader": "",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveLabel": "Entities",
-                "perspectiveName": "entities",
+                "perspectiveIcon": "/services/web/resources/unicons/users-alt.svg",
+                "perspectiveLabel": "Customers",
+                "perspectiveName": "customers",
                 "perspectiveNavId": "",
-                "perspectiveOrder": "100",
+                "perspectiveOrder": "10",
                 "perspectiveRole": "",
                 "title": "Customer",
                 "tooltip": "Customer",
@@ -224,7 +224,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Account_Customer",
                         "relationshipEntityName": "Customer",
-                        "relationshipEntityPerspectiveName": "entities",
+                        "relationshipEntityPerspectiveName": "customers",
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
@@ -242,7 +242,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "dataDefaultValue": "0.0",
+                        "dataDefaultValue": "0",
                         "dataLength": "15",
                         "dataName": "ACCOUNT_BALANCE",
                         "dataNullable": "true",
@@ -258,7 +258,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "dataDefaultValue": "0.0",
+                        "dataDefaultValue": "0",
                         "dataLength": "15",
                         "dataName": "ACCOUNT_OVERDRAFTLIMIT",
                         "dataNullable": "true",
@@ -357,11 +357,11 @@
                 "multilingual": "false",
                 "name": "Account",
                 "perspectiveHeader": "",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveLabel": "Entities",
-                "perspectiveName": "entities",
+                "perspectiveIcon": "/services/web/resources/unicons/university.svg",
+                "perspectiveLabel": "Accounts",
+                "perspectiveName": "accounts",
                 "perspectiveNavId": "",
-                "perspectiveOrder": "100",
+                "perspectiveOrder": "20",
                 "perspectiveRole": "",
                 "title": "Account",
                 "tooltip": "Account",
@@ -389,6 +389,9 @@
                         "dataType": "BIGINT",
                         "description": "",
                         "name": "accountId",
+                        "relationshipCardinality": "1_n",
+                        "relationshipName": "Transaction_Account",
+                        "relationshipType": "COMPOSITION",
                         "tooltip": "",
                         "widgetDropDownKey": "id",
                         "widgetDropDownValue": "iban",
@@ -396,9 +399,8 @@
                         "widgetLength": "20",
                         "widgetSize": "",
                         "widgetType": "DROPDOWN",
-                        "relationshipName": "Transaction_Account",
                         "relationshipEntityName": "Account",
-                        "relationshipEntityPerspectiveName": "entities",
+                        "relationshipEntityPerspectiveName": "accounts",
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
@@ -446,7 +448,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "dataDefaultValue": "0.0",
+                        "dataDefaultValue": "0",
                         "dataName": "TRANSACTION_FEE",
                         "dataNullable": "true",
                         "dataType": "DOUBLE",
@@ -513,15 +515,15 @@
                 "multilingual": "false",
                 "name": "Transaction",
                 "perspectiveHeader": "",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveLabel": "Entities",
-                "perspectiveName": "entities",
+                "perspectiveIcon": "/services/web/resources/unicons/university.svg",
+                "perspectiveLabel": "Accounts",
+                "perspectiveName": "accounts",
                 "perspectiveNavId": "",
-                "perspectiveOrder": "100",
+                "perspectiveOrder": "20",
                 "perspectiveRole": "",
                 "title": "Transaction",
                 "tooltip": "Transaction",
-                "type": "PRIMARY"
+                "type": "DEPENDENT"
             },
             {
                 "properties": [
@@ -554,7 +556,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Document_Customer",
                         "relationshipEntityName": "Customer",
-                        "relationshipEntityPerspectiveName": "entities",
+                        "relationshipEntityPerspectiveName": "customers",
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
@@ -641,11 +643,11 @@
                 "multilingual": "false",
                 "name": "Document",
                 "perspectiveHeader": "",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveLabel": "Entities",
-                "perspectiveName": "entities",
+                "perspectiveIcon": "/services/web/resources/unicons/file-alt.svg",
+                "perspectiveLabel": "Documents",
+                "perspectiveName": "documents",
                 "perspectiveNavId": "",
-                "perspectiveOrder": "100",
+                "perspectiveOrder": "30",
                 "perspectiveRole": "",
                 "title": "Document",
                 "tooltip": "Document",
@@ -761,18 +763,43 @@
                 "multilingual": "false",
                 "name": "AuditLog",
                 "perspectiveHeader": "",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveLabel": "Entities",
-                "perspectiveName": "entities",
+                "perspectiveIcon": "/services/web/resources/unicons/shield-check.svg",
+                "perspectiveLabel": "AuditLogs",
+                "perspectiveName": "auditLogs",
                 "perspectiveNavId": "",
-                "perspectiveOrder": "100",
+                "perspectiveOrder": "99",
                 "perspectiveRole": "",
                 "title": "AuditLog",
                 "tooltip": "AuditLog",
                 "type": "PRIMARY"
             }
         ],
-        "perspectives": [],
+        "perspectives": [
+            {
+                "name": "customers",
+                "label": "Customers",
+                "icon": "/services/web/resources/unicons/users-alt.svg",
+                "order": "10"
+            },
+            {
+                "name": "accounts",
+                "label": "Accounts",
+                "icon": "/services/web/resources/unicons/university.svg",
+                "order": "20"
+            },
+            {
+                "name": "documents",
+                "label": "Documents",
+                "icon": "/services/web/resources/unicons/file-alt.svg",
+                "order": "30"
+            },
+            {
+                "name": "auditLogs",
+                "label": "AuditLogs",
+                "icon": "/services/web/resources/unicons/shield-check.svg",
+                "order": "99"
+            }
+        ],
         "navigations": []
     }
 }

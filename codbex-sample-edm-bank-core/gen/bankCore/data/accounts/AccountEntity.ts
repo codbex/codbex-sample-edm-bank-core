@@ -53,7 +53,7 @@ export class AccountEntity {
         type: 'big_decimal',
         precision: 15,
         scale: 2,
-        defaultValue: `0.0`,
+        defaultValue: `0`,
         nullable: true,
     })
     public balance?: number;
@@ -64,7 +64,7 @@ export class AccountEntity {
         type: 'big_decimal',
         precision: 15,
         scale: 2,
-        defaultValue: `0.0`,
+        defaultValue: `0`,
         nullable: true,
     })
     public overdraftLimit?: number;

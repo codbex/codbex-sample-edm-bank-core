@@ -1,32 +1,32 @@
 import { Repository, EntityEvent, EntityConstructor } from '@aerokit/sdk/db';
 import { Producer } from '@aerokit/sdk/messaging';
 import { Extensions } from '@aerokit/sdk/extensions';
-import { CustomerEntity } from './CustomerEntity';
+import { AccountEntity } from './AccountEntity';
 
-export class CustomerRepository extends Repository<CustomerEntity> {
+export class AccountRepository extends Repository<AccountEntity> {
 
     constructor() {
-        super((CustomerEntity as EntityConstructor));
+        super((AccountEntity as EntityConstructor));
     }
 
-    public override create(entity: CustomerEntity): string | number {
+    public override create(entity: AccountEntity): string | number {
         entity.createdAt = new Date();
         return super.create(entity);
     }
 
-    public override update(entity: CustomerEntity): void {
+    public override update(entity: AccountEntity): void {
         entity.updatedAt = new Date();
         super.update(entity);
     }
 
-    public override upsert(entity: CustomerEntity): string | number {
+    public override upsert(entity: AccountEntity): string | number {
         entity.createdAt = new Date();
         entity.updatedAt = new Date();
         return super.upsert(entity);
     }
 
-    protected override async triggerEvent(data: EntityEvent<CustomerEntity>): Promise<void> {
-        const triggerExtensions = await Extensions.loadExtensionModules('codbex-sample-edm-bank-core-entities-Customer', ['trigger']);
+    protected override async triggerEvent(data: EntityEvent<AccountEntity>): Promise<void> {
+        const triggerExtensions = await Extensions.loadExtensionModules('codbex-sample-edm-bank-core-accounts-Account', ['trigger']);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -34,6 +34,6 @@ export class CustomerRepository extends Repository<CustomerEntity> {
                 console.error(error);
             }
         });
-        Producer.topic('codbex-sample-edm-bank-core-entities-Customer').send(JSON.stringify(data));
+        Producer.topic('codbex-sample-edm-bank-core-accounts-Account').send(JSON.stringify(data));
     }
 }

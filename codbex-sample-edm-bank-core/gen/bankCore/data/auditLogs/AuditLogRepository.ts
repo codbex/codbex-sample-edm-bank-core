@@ -20,7 +20,7 @@ export class AuditLogRepository extends Repository<AuditLogEntity> {
     }
 
     protected override async triggerEvent(data: EntityEvent<AuditLogEntity>): Promise<void> {
-        const triggerExtensions = await Extensions.loadExtensionModules('codbex-sample-edm-bank-core-entities-AuditLog', ['trigger']);
+        const triggerExtensions = await Extensions.loadExtensionModules('codbex-sample-edm-bank-core-auditLogs-AuditLog', ['trigger']);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -28,6 +28,6 @@ export class AuditLogRepository extends Repository<AuditLogEntity> {
                 console.error(error);
             }
         });
-        Producer.topic('codbex-sample-edm-bank-core-entities-AuditLog').send(JSON.stringify(data));
+        Producer.topic('codbex-sample-edm-bank-core-auditLogs-AuditLog').send(JSON.stringify(data));
     }
 }

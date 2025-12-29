@@ -20,7 +20,7 @@ export class DocumentRepository extends Repository<DocumentEntity> {
     }
 
     protected override async triggerEvent(data: EntityEvent<DocumentEntity>): Promise<void> {
-        const triggerExtensions = await Extensions.loadExtensionModules('codbex-sample-edm-bank-core-entities-Document', ['trigger']);
+        const triggerExtensions = await Extensions.loadExtensionModules('codbex-sample-edm-bank-core-documents-Document', ['trigger']);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -28,6 +28,6 @@ export class DocumentRepository extends Repository<DocumentEntity> {
                 console.error(error);
             }
         });
-        Producer.topic('codbex-sample-edm-bank-core-entities-Document').send(JSON.stringify(data));
+        Producer.topic('codbex-sample-edm-bank-core-documents-Document').send(JSON.stringify(data));
     }
 }
