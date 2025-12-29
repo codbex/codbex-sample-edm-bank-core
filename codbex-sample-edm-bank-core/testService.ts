@@ -4,10 +4,8 @@ import { UUID } from '@aerokit/sdk/utils';
 import { CustomerRepository } from './gen/bankCore/data/customers/CustomerRepository';
 import { AccountRepository } from './gen/bankCore/data/accounts/AccountRepository';
 import { TransactionRepository } from './gen/bankCore/data/accounts/TransactionRepository';
-
-// TODO: profileNotes (CLOB) is not working!
-// TODO: profileNotes (CLOB) is not working!
-// TODO: profileNotes (CLOB) is not working!
+import { DocumentRepository } from './gen/bankCore/data/documents/DocumentRepository';
+import { Bytes } from '@aerokit/sdk/io';
 
 // TODO: approved ('BIT' -> boolean with default value 0???) is not working!
 
@@ -37,7 +35,7 @@ const vipCustomerId = customerRepo.create({
     dateOfBirth: '1988-04-12',
     isActive: true,
     riskScore: 72.5,
-    // profileNotes: 'High-value customer with premium services'
+    profileNotes: 'High-value customer with premium services'
 });
 
 /**
@@ -52,7 +50,7 @@ if (!customer) {
  * UPDATE – triggers OnUpdate
  */
 customer.riskScore = 15.2;
-// customer.profileNotes = 'Updated risk after AML review';
+customer.profileNotes = 'Updated risk after AML review';
 customerRepo.update(customer);
 
 /**
@@ -163,3 +161,31 @@ const approvedTransactions = transactionRepo.findAll({
 
 Response.println(`Approved transactions = ${approvedTransactions.length}`);
 
+const documentRepo = new DocumentRepository();
+
+/**
+ * CREATE – KYC document
+ */
+const documentId = documentRepo.create({
+    customerId,
+    documentType: 'PASSPORT',
+    fileName: 'passport.pdf',
+    content: Bytes.textToByteArray("Hello World"),
+    checksum: UUID.random()
+});
+
+/**
+ * READ
+ */
+const document = documentRepo.findById(documentId)!;
+
+/**
+ * QUERY
+ */
+const customerDocs = documentRepo.findAll({
+    conditions: [
+        { operator: Operator.EQ, propertyName: 'customerId', value: customerId }
+    ]
+});
+
+Response.println(`Customer documents = ${customerDocs.length}`);
