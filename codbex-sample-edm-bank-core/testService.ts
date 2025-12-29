@@ -15,5 +15,11 @@ if (!accountEntity) {
     throw new Error(`Account entity with id = ${accountId} not found`);
 }
 
+const allAccounts = repository.findAll();
+
 Response.println(`Account id = ${accountId}`);
-Response.println(`Account entity = ${JSON.stringify(accountEntity)}`);
+Response.println(`-------`);
+Response.println(`Account entity = ${JSON.stringify(accountEntity, null, 4)}`);
+Response.println(`-------`);
+Response.println(`All accounts = ${JSON.stringify(allAccounts, null, 4)}`);
+Response.println(`-------`);
