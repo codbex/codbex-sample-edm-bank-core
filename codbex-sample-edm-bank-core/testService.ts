@@ -36,9 +36,9 @@ const filteredAccounts = repository.findAll({
 })
 
 const JsonHelper = Java.type("org.eclipse.dirigible.components.base.helpers.JsonHelper");
-const QueryOptions = Java.type("org.eclipse.dirigible.components.data.store.QueryOptions");
+const DynamicQueryFilter = Java.type("org.eclipse.dirigible.components.data.store.DynamicQueryFilter");
 
-const result = JsonHelper.fromJson(JSON.stringify({}), QueryOptions.class);
+const result = JsonHelper.fromJson(JSON.stringify({}), DynamicQueryFilter.QueryOptions.class);
 
 Response.println(`Result = ${result}`);
 Response.println(`-------`);
