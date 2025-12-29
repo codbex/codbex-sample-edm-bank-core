@@ -1,0 +1,320 @@
+{
+    "schema": {
+        "structures": [
+            {
+                "name": "SAMPLE_BANK_CUSTOMER",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "BIGINT",
+                        "primaryKey": true,
+                        "identity": true,
+                        "name": "CUSTOMER_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "unique": true,
+                        "name": "CUSTOMER_CUSTOMERNUMBER"
+                    },
+                    {
+                        "type": "CHAR",
+                        "length": 1,
+                        "defaultValue": "'I'",
+                        "nullable": true,
+                        "name": "CUSTOMER_TYPE"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 100,
+                        "name": "CUSTOMER_FIRSTNAME"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 100,
+                        "name": "CUSTOMER_LASTNAME"
+                    },
+                    {
+                        "type": "DATE",
+                        "nullable": true,
+                        "name": "CUSTOMER_DATEOFBIRTH"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "defaultValue": "true",
+                        "nullable": true,
+                        "name": "CUSTOMER_ISACTIVE"
+                    },
+                    {
+                        "type": "REAL",
+                        "defaultValue": "0.0",
+                        "nullable": true,
+                        "name": "CUSTOMER_RISKSCORE"
+                    },
+                    {
+                        "type": "CLOB",
+                        "nullable": true,
+                        "name": "CUSTOMER_PROFILENOTES"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "nullable": true,
+                        "name": "CUSTOMER_CREATEDAT"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "nullable": true,
+                        "name": "CUSTOMER_UPDATEDAT"
+                    }
+                ]
+            },
+            {
+                "name": "SAMPLE_BANK_ACCOUNT",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "BIGINT",
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "ACCOUNT_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 34,
+                        "nullable": true,
+                        "unique": true,
+                        "name": "ACCOUNT_IBAN"
+                    },
+                    {
+                        "type": "BIGINT",
+                        "name": "ACCOUNT_CUSTOMERID"
+                    },
+                    {
+                        "type": "CHAR",
+                        "length": 3,
+                        "defaultValue": "'EUR'",
+                        "nullable": true,
+                        "name": "ACCOUNT_CURRENCY"
+                    },
+                    {
+                        "type": "DECIMAL",
+                        "length": 15,
+                        "precision": "15",
+                        "scale": "2",
+                        "defaultValue": "0.0",
+                        "nullable": true,
+                        "name": "ACCOUNT_BALANCE"
+                    },
+                    {
+                        "type": "DECIMAL",
+                        "length": 15,
+                        "precision": "15",
+                        "scale": "2",
+                        "defaultValue": "0.0",
+                        "nullable": true,
+                        "name": "ACCOUNT_OVERDRAFTLIMIT"
+                    },
+                    {
+                        "type": "SMALLINT",
+                        "defaultValue": "1",
+                        "nullable": true,
+                        "name": "ACCOUNT_STATUS"
+                    },
+                    {
+                        "type": "DATE",
+                        "defaultValue": "CURRENT_DATE",
+                        "nullable": true,
+                        "name": "ACCOUNT_OPENEDON"
+                    },
+                    {
+                        "type": "TIME",
+                        "nullable": true,
+                        "name": "ACCOUNT_LASTACCESSTIME"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "nullable": true,
+                        "name": "ACCOUNT_CREATEDAT"
+                    },
+                    {
+                        "type": "TIME",
+                        "nullable": true,
+                        "name": "ACCOUNT_UPDATEDAT"
+                    }
+                ]
+            },
+            {
+                "name": "SAMPLE_BANK_TRANSACTION",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "BIGINT",
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "TRANSACTION_ID"
+                    },
+                    {
+                        "type": "BIGINT",
+                        "name": "TRANSACTION_ACCOUNTID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 64,
+                        "unique": true,
+                        "name": "TRANSACTION_REFERENCE"
+                    },
+                    {
+                        "type": "DECIMAL",
+                        "length": 15,
+                        "precision": "15",
+                        "scale": "2",
+                        "name": "TRANSACTION_AMOUNT"
+                    },
+                    {
+                        "type": "CHAR",
+                        "length": 1,
+                        "name": "TRANSACTION_DIRECTION"
+                    },
+                    {
+                        "type": "DOUBLE",
+                        "defaultValue": "0.0",
+                        "nullable": true,
+                        "name": "TRANSACTION_FEE"
+                    },
+                    {
+                        "type": "REAL",
+                        "nullable": true,
+                        "name": "TRANSACTION_EXCHANGERATE"
+                    },
+                    {
+                        "type": "BIT",
+                        "defaultValue": "0",
+                        "nullable": true,
+                        "name": "TRANSACTION_APPROVED"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "nullable": true,
+                        "name": "TRANSACTION_CREATEDON"
+                    }
+                ]
+            },
+            {
+                "name": "SAMPLE_BANK_DOCUMENT",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "BIGINT",
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "DOCUMENT_ID"
+                    },
+                    {
+                        "type": "BIGINT",
+                        "name": "DOCUMENT_CUSTOMERID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 50,
+                        "name": "DOCUMENT_DOCUMENTTYPE"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 255,
+                        "name": "DOCUMENT_FILENAME"
+                    },
+                    {
+                        "type": "BLOB",
+                        "name": "DOCUMENT_CONTENT"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 64,
+                        "nullable": true,
+                        "unique": true,
+                        "name": "DOCUMENT_CHECKSUM"
+                    },
+                    {
+                        "type": "DATE",
+                        "nullable": true,
+                        "name": "DOCUMENT_UPLOADEDAT"
+                    }
+                ]
+            },
+            {
+                "name": "SAMPLE_BANK_AUDITLOG",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "BIGINT",
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "AUDITLOG_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 100,
+                        "name": "AUDITLOG_ENTITYNAME"
+                    },
+                    {
+                        "type": "BIGINT",
+                        "nullable": true,
+                        "name": "AUDITLOG_ENTITYID"
+                    },
+                    {
+                        "type": "CHAR",
+                        "length": 1,
+                        "name": "AUDITLOG_OPERATION"
+                    },
+                    {
+                        "type": "CLOB",
+                        "nullable": true,
+                        "name": "AUDITLOG_OLDVALUE"
+                    },
+                    {
+                        "type": "CLOB",
+                        "nullable": true,
+                        "name": "AUDITLOG_NEWVALUE"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "nullable": true,
+                        "name": "AUDITLOG_CREATEDAT"
+                    }
+                ]
+            },
+            {
+                "name": "Account_Customer",
+                "type": "foreignKey",
+                "table": "SAMPLE_BANK_ACCOUNT",
+                "constraintName": "Account_Customer",
+                "columns": "ACCOUNT_CUSTOMERID",
+                "referencedTable": "SAMPLE_BANK_CUSTOMER",
+                "referencedColumns": "CUSTOMER_ID"
+            },
+            {
+                "name": "Transaction_Account",
+                "type": "foreignKey",
+                "table": "SAMPLE_BANK_TRANSACTION",
+                "constraintName": "Transaction_Account",
+                "columns": "TRANSACTION_ACCOUNTID",
+                "referencedTable": "SAMPLE_BANK_ACCOUNT",
+                "referencedColumns": "ACCOUNT_ID"
+            },
+            {
+                "name": "Document_Customer",
+                "type": "foreignKey",
+                "table": "SAMPLE_BANK_DOCUMENT",
+                "constraintName": "Document_Customer",
+                "columns": "DOCUMENT_CUSTOMERID",
+                "referencedTable": "SAMPLE_BANK_CUSTOMER",
+                "referencedColumns": "CUSTOMER_ID"
+            }
+        ]
+    },
+    "datasource": "DefaultDB"
+}
