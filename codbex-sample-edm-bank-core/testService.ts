@@ -189,3 +189,9 @@ const customerDocs = documentRepo.findAll({
 });
 
 Response.println(`Customer documents = ${customerDocs.length}`);
+
+const results = documentRepo.findAll();
+
+for (const next of results) {
+    Response.println(`BLOB: ${Bytes.byteArrayToText(next.content as any[])}`);
+}
