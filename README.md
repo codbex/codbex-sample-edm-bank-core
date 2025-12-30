@@ -27,6 +27,8 @@ It is ideal for:
 
 # 🏗️ Domain Overview
 
+![EDM Model](model.png)
+
 The sample domain models a **Retail Banking Core**, including:
 
 | Entity          | Description                              |
