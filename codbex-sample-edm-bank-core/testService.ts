@@ -190,9 +190,5 @@ const customerDocs = documentRepo.findAll({
     ]
 });
 
-// Response.println(`Customer documents = ${customerDocs.length}`);
-
-const results = documentRepo.findAll();
-
 Response.setContentType('application/pdf');
-Response.write(results[0].content as any[]);
+Response.write(customerDocs[0].content as any[]);
