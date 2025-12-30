@@ -5,7 +5,7 @@ import { CustomerRepository } from './gen/bankCore/data/customers/CustomerReposi
 import { AccountRepository } from './gen/bankCore/data/accounts/AccountRepository';
 import { TransactionRepository } from './gen/bankCore/data/accounts/TransactionRepository';
 import { DocumentRepository } from './gen/bankCore/data/documents/DocumentRepository';
-import { Bytes } from '@aerokit/sdk/io';
+import { Files } from '@aerokit/sdk/io';
 
 // TODO: approved ('BIT' -> boolean with default value 0???) is not working!
 
@@ -66,7 +66,7 @@ const activeCustomers = customerRepo.findAll({
     ]
 });
 
-Response.println(`Customers found = ${activeCustomers.length}`);
+// Response.println(`Customers found = ${activeCustomers.length}`);
 
 const accountRepo = new AccountRepository();
 
@@ -116,7 +116,7 @@ const richAccounts = accountRepo.findAll({
     ]
 });
 
-Response.println(`Accounts with high balance = ${richAccounts.length}`);
+// Response.println(`Accounts with high balance = ${richAccounts.length}`);
 
 const transactionRepo = new TransactionRepository();
 
@@ -159,18 +159,20 @@ const approvedTransactions = transactionRepo.findAll({
     ]
 });
 
-Response.println(`Approved transactions = ${approvedTransactions.length}`);
+// Response.println(`Approved transactions = ${approvedTransactions.length}`);
 
 const documentRepo = new DocumentRepository();
 
 /**
  * CREATE – KYC document
  */
+const bytes = Files.readBytes('/target/dirigible/repository/root/registry/public/codbex-sample-edm-bank-core/dummy_statement.pdf');
+
 const documentId = documentRepo.create({
     customerId,
     documentType: 'PASSPORT',
     fileName: 'passport.pdf',
-    content: Bytes.textToByteArray("Hello World"),
+    content: bytes,
     checksum: UUID.random()
 });
 
@@ -188,10 +190,9 @@ const customerDocs = documentRepo.findAll({
     ]
 });
 
-Response.println(`Customer documents = ${customerDocs.length}`);
+// Response.println(`Customer documents = ${customerDocs.length}`);
 
 const results = documentRepo.findAll();
 
-for (const next of results) {
-    Response.println(`BLOB: ${Bytes.byteArrayToText(next.content as any[])}`);
-}
+Response.setContentType('application/pdf');
+Response.write(results[0].content as any[]);
