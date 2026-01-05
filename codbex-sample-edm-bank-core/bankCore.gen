@@ -1153,8 +1153,8 @@
           "isCalculatedProperty": false,
           "widgetLabel": "approved",
           "widgetDropdownUrl": "",
-          "dataTypeJava": "boolean",
-          "dataTypeTypescript": "boolean",
+          "dataTypeJava": "",
+          "dataTypeTypescript": "unknown",
           "inputRule": ""
         },
         {
