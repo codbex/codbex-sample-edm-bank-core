@@ -1,0 +1,5 @@
+{
+    "module": "codbex-sample-dashboard-bank-core/customer-onboarding/dialog/view.js",
+    "extensionPoint": "application-windows",
+    "description": "bank-core - Customer Onboarding Dialog Window"
+}
