@@ -1,0 +1,82 @@
+{
+    "feeds": [],
+    "scripts": [],
+    "code": "const Dialogs = new DialogHub();\n\nconst params = new URLSearchParams(window.location.search);\nconst taskId = params.get('taskId');\n\n$http.get(`/services/ts/codbex-sample-bpm-bank-core/api/customerData.ts?taskId=${taskId}`).then((response) => {\n    const customerData = response.data;\n    $scope.model.firstName = customerData.firstName;\n    $scope.model.lastName = customerData.lastName;\n    $scope.model.dateOfBirth = new Date(customerData.dateOfBirth);\n    $scope.model.profileNotes = customerData.profileNotes;\n    // $scope.reports = response.data.map(e => ({\n    //     value: JSON.stringify({\n    //         reportId: e.reportId,\n    //         statementTypeId: e.statementTypeId\n    //     }),\n    //     text: `${e.reportFilepath} | ${e.statementTypeName}`\n    // }));\n}, (error) => {\n    console.error(error);\n});\n\n$scope.createCustomer = function () {\n    $http.post(`/services/ts/codbex-sample-bpm-bank-core/api/customerData.ts?taskId=${taskId}`, {\n        firstName: $scope.model.firstName,\n        lastName: $scope.model.lastName,\n        dateOfBirth: $scope.model.dateOfBirth,\n        profileNotes: $scope.model.profileNotes,\n    }).then((response) => {\n            alert(`Customer created successfully`);\n        }, (response) => {\n            alert(`Failed to create new customer: ${response.data.message}`);\n        }\n    );\n}",
+    "form": [
+        {
+            "controlId": "header",
+            "groupId": "fb-display",
+            "label": "Enter Customer Data",
+            "headerSize": 3
+        },
+        {
+            "controlId": "input-textfield",
+            "groupId": "fb-controls",
+            "id": "ie0d12970-cfa3-ee32-db9e-b9e9b57a9f42",
+            "label": "First Name",
+            "horizontal": false,
+            "isCompact": false,
+            "placeholder": "",
+            "type": "text",
+            "model": "firstName",
+            "required": true,
+            "minLength": 0,
+            "maxLength": -1,
+            "validationRegex": "",
+            "errorMessage": "Incorrect input"
+        },
+        {
+            "controlId": "input-textfield",
+            "groupId": "fb-controls",
+            "id": "i41c6fb76-33c1-9f2e-9b94-3bd3303c7930",
+            "label": "Last Name ",
+            "horizontal": false,
+            "isCompact": false,
+            "placeholder": "",
+            "type": "text",
+            "model": "lastName",
+            "required": true,
+            "minLength": 0,
+            "maxLength": -1,
+            "validationRegex": "",
+            "errorMessage": "Incorrect input"
+        },
+        {
+            "controlId": "input-date",
+            "groupId": "fb-controls",
+            "id": "i0a9ff668-d6f3-2471-29e5-5debc830426e",
+            "label": "Date of Birth",
+            "horizontal": true,
+            "isCompact": false,
+            "type": "date",
+            "model": "dateOfBirth",
+            "required": true
+        },
+        {
+            "controlId": "input-textarea",
+            "groupId": "fb-controls",
+            "id": "if4141ea0-f833-6380-abbc-db4ff1965b44",
+            "label": "Profile Notes",
+            "horizontal": true,
+            "isCompact": false,
+            "placeholder": "",
+            "type": "text",
+            "model": "profileNotes",
+            "required": true,
+            "minLength": 0,
+            "maxLength": -1,
+            "validationRegex": "",
+            "errorState": "Incorrect input"
+        },
+        {
+            "controlId": "button",
+            "groupId": "fb-controls",
+            "label": "Create Customer",
+            "type": "positive",
+            "sizeToText": false,
+            "isSubmit": true,
+            "isCompact": false,
+            "callback": "createCustomer()"
+        }
+    ]
+}

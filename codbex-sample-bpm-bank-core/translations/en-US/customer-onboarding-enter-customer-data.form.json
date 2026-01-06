@@ -1,0 +1,20 @@
+{
+  "customer-onboarding-enter-customer-data-form": {
+    "aria": {
+      "showHide": "show/hide {{element}} options",
+      "options": "{{element}} options"
+    },
+    "default": {
+      "viewName": "{{name}} Form"
+    },
+    "t": {
+      "EnterCustomerData": "Enter Customer Data",
+      "FirstName": "First Name",
+      "Incorrectinput": "Incorrect input",
+      "LastName": "Last Name ",
+      "DateofBirth": "Date of Birth",
+      "ProfileNotes": "Profile Notes",
+      "CreateCustomer": "Create Customer"
+    }
+  }
+}

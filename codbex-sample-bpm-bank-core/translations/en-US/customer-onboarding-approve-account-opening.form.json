@@ -1,0 +1,21 @@
+{
+  "customer-onboarding-approve-account-opening-form": {
+    "aria": {
+      "showHide": "show/hide {{element}} options",
+      "options": "{{element}} options"
+    },
+    "default": {
+      "viewName": "{{name}} Form"
+    },
+    "t": {
+      "ApproveAccountOpening": "Approve Account Opening",
+      "FirstName": "First Name:",
+      "LastName": "Last Name:",
+      "DateofBirth": "Date of Birth:",
+      "CustomerNumber": "Customer Number:",
+      "ProfileNotes": "Profile Notes:",
+      "InitialBalance": "Initial Balance",
+      "CreateAccount": "Create Account"
+    }
+  }
+}

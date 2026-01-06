@@ -8,13 +8,14 @@ const tracer = new Tracer();
 
 try {
     const customerId: number = Process.getExecutionContext().getVariable('customerId');
+    const initialBalance: number = Process.getExecutionContext().getVariable('initialBalance');
 
     const repository = new AccountRepository();
 
     const accountId = repository.create({
         customerId: customerId,
-        iban: UUID.random().replace(/-/g, '').substring(0, 34),
-        balance: 1000.00,
+        iban: UUID.random().replace(/-/g, '').substring(0, 34).toUpperCase(),
+        balance: initialBalance,
         // currency defaults to EUR
         // status defaults to 1
         // overdraftLimit defaults to 0

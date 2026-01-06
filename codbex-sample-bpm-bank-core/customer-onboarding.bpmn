@@ -11,7 +11,7 @@
     </serviceTask>
     <endEvent id="end-event"/>
     <sequenceFlow id="sid-645847E8-C959-48BD-816B-2E9CC4A2F08A" sourceRef="parseIdCard" targetRef="enterCustomerData"/>
-    <userTask id="enterCustomerData" name="Enter Customer Data" flowable:async="true" flowable:candidateGroups="ADMINISTRATOR" flowable:formKey="/services/ts/codbex-sample-bpm-bank-core/dummyTaskComplete.ts"/>
+    <userTask id="enterCustomerData" name="Enter Customer Data" flowable:async="true" flowable:candidateGroups="ADMINISTRATOR" flowable:formKey="/services/web/codbex-sample-bpm-bank-core/gen/customer-onboarding-enter-customer-data/forms/customer-onboarding-enter-customer-data/index.html"/>
     <serviceTask id="createCustomer" name="Create Customer" flowable:async="true" flowable:delegateExpression="${JSTask}">
       <extensionElements>
         <flowable:field name="handler">
@@ -20,12 +20,12 @@
       </extensionElements>
     </serviceTask>
     <sequenceFlow id="sid-6206031E-9205-43C6-8C3E-8FFC2AD47A69" sourceRef="enterCustomerData" targetRef="createCustomer"/>
-    <userTask id="approveAccountOpening" name="Approve Account Opening" flowable:async="true" flowable:candidateGroups="ADMINISTRATOR" flowable:formKey="/services/ts/codbex-sample-bpm-bank-core/dummyTaskComplete.ts"/>
+    <userTask id="approveAccountOpening" name="Approve Account Opening" flowable:async="true" flowable:candidateGroups="ADMINISTRATOR" flowable:formKey="/services/web/codbex-sample-bpm-bank-core/gen/customer-onboarding-approve-account-opening/forms/customer-onboarding-approve-account-opening/index.html"/>
     <sequenceFlow id="sid-387041F3-ADAD-4752-A35E-18F579319B8E" sourceRef="createCustomer" targetRef="approveAccountOpening"/>
     <serviceTask id="createAccount" name="Create Account" flowable:async="true" flowable:delegateExpression="${JSTask}">
       <extensionElements>
         <flowable:field name="handler">
-          <flowable:string><![CDATA[myproject/sid-3D15C5E8-5D6F-40AC-92D5-354E4FCBE942.ts]]></flowable:string>
+          <flowable:string><![CDATA[codbex-sample-bpm-bank-core/tasks/createAccount.js]]></flowable:string>
         </flowable:field>
       </extensionElements>
     </serviceTask>

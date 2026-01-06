@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="forms" ng-controller="FormController">
+
+	<head>
+		<meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" sizes="any" href="data:;base64,iVBORw0KGgo=">
+		<title config-title></title>
+		<script type="text/javascript" src="view.js"></script>
+		<script type="text/javascript" src="/services/js/platform-core/services/loader.js?id=view-js"></script>
+		<link type="text/css" rel="stylesheet" href="/services/js/platform-core/services/loader.js?id=view-css" />
+		<script type="text/javascript" src="controller.js"></script>
+	</head>
+
+	<body class="bk-vbox">
+		<bk-fieldset class="fd-margin--tiny" ng-form="forms.form">
+			<bk-form-group>
+
+				<h3 bk-title header-size="3">{{ 'codbex-sample-bpm-bank-core:customer-onboarding-enter-customer-data-form.t.EnterCustomerData' | t:'Enter Customer Data' }}</h3>
+				<bk-form-item horizontal="false">
+					<bk-form-label colon="true" ng-required="true" for="ie0d12970-cfa3-ee32-db9e-b9e9b57a9f42">{{ 'codbex-sample-bpm-bank-core:customer-onboarding-enter-customer-data-form.t.FirstName' | t:'First Name' }}</bk-form-label>
+					<bk-form-input-message state="{{ forms.form['ie0d12970-cfa3-ee32-db9e-b9e9b57a9f42'].$valid ? '' : 'error' }}" text="{{ 'codbex-sample-bpm-bank-core:customer-onboarding-enter-customer-data-form.t.Incorrectinput' | t:'Incorrect input' }}">
+						<bk-input id="ie0d12970-cfa3-ee32-db9e-b9e9b57a9f42"
+							name="ie0d12970-cfa3-ee32-db9e-b9e9b57a9f42"
+							ng-model="model.firstName"
+							ng-required="true"
+							type="text"
+							compact="false"
+							placeholder=""
+							state="{{ !forms.form['ie0d12970-cfa3-ee32-db9e-b9e9b57a9f42'].$valid ? 'error' : '' }}"
+							ng-trim="false"
+							ng-minlength="0.0"
+							ng-maxlength="-1.0">
+						</bk-input>
+					</bk-form-input-message>
+				</bk-form-item>
+				<bk-form-item horizontal="false">
+					<bk-form-label colon="true" ng-required="true" for="i41c6fb76-33c1-9f2e-9b94-3bd3303c7930">{{ 'codbex-sample-bpm-bank-core:customer-onboarding-enter-customer-data-form.t.LastName' | t:'Last Name ' }}</bk-form-label>
+					<bk-form-input-message state="{{ forms.form['i41c6fb76-33c1-9f2e-9b94-3bd3303c7930'].$valid ? '' : 'error' }}" text="{{ 'codbex-sample-bpm-bank-core:customer-onboarding-enter-customer-data-form.t.Incorrectinput' | t:'Incorrect input' }}">
+						<bk-input id="i41c6fb76-33c1-9f2e-9b94-3bd3303c7930"
+							name="i41c6fb76-33c1-9f2e-9b94-3bd3303c7930"
+							ng-model="model.lastName"
+							ng-required="true"
+							type="text"
+							compact="false"
+							placeholder=""
+							state="{{ !forms.form['i41c6fb76-33c1-9f2e-9b94-3bd3303c7930'].$valid ? 'error' : '' }}"
+							ng-trim="false"
+							ng-minlength="0.0"
+							ng-maxlength="-1.0">
+						</bk-input>
+					</bk-form-input-message>
+				</bk-form-item>
+				<bk-form-item horizontal="true">
+					<bk-form-label colon="true" ng-required="true" for="i0a9ff668-d6f3-2471-29e5-5debc830426e">{{ 'codbex-sample-bpm-bank-core:customer-onboarding-enter-customer-data-form.t.DateofBirth' | t:'Date of Birth' }}</bk-form-label>
+					<bk-input id="i0a9ff668-d6f3-2471-29e5-5debc830426e" name="i0a9ff668-d6f3-2471-29e5-5debc830426e" compact="false" ng-model="model.dateOfBirth" ng-required="true" type="date"></bk-input>
+				</bk-form-item>
+				<bk-form-item horizontal="true">
+					<bk-form-label colon="true" ng-required="true" for="if4141ea0-f833-6380-abbc-db4ff1965b44">{{ 'codbex-sample-bpm-bank-core:customer-onboarding-enter-customer-data-form.t.ProfileNotes' | t:'Profile Notes' }}</bk-form-label>
+					<bk-form-input-message state="{{ forms.form['if4141ea0-f833-6380-abbc-db4ff1965b44'].$valid ? '' : 'error' }}" text="{{ 'codbex-sample-bpm-bank-core:customer-onboarding-enter-customer-data-form.t.ProfileNotes' | t:'Incorrect input' }}">
+						<bk-textarea id="if4141ea0-f833-6380-abbc-db4ff1965b44"
+							name="if4141ea0-f833-6380-abbc-db4ff1965b44"
+							ng-model="model.profileNotes"
+							ng-required="true"
+							type="text"
+							compact="false"
+							placeholder=""
+							state="{{ !forms.form['if4141ea0-f833-6380-abbc-db4ff1965b44'].$valid ? 'error' : '' }}"
+							ng-trim="false"
+							ng-minlength="0.0"
+							ng-maxlength="-1.0">
+						</bk-textarea>
+					</bk-form-input-message>
+				</bk-form-item>
+				<div>
+					<bk-button class="bk-full-width" type="submit" ng-disabled="!forms.form.$valid" label="{{ 'codbex-sample-bpm-bank-core:customer-onboarding-enter-customer-data-form.t.CreateCustomer' | t:'Create Customer' }}" compact="false" state="positive" ng-click="createCustomer()"></bk-button>
+				</div>
+			</bk-form-group>
+		</bk-fieldset>
+		<theme></theme>
+	</body>
+
+</html>

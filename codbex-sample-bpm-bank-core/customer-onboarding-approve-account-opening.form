@@ -1,0 +1,156 @@
+{
+    "feeds": [],
+    "scripts": [],
+    "code": "const Dialogs = new DialogHub();\n\nconst params = new URLSearchParams(window.location.search);\nconst taskId = params.get('taskId');\n\n$http.get(`/services/ts/codbex-sample-bpm-bank-core/api/accountData.ts?taskId=${taskId}`).then((response) => {\n    const accountData = response.data;\n    $scope.model.customerNumber = accountData.customerNumber;\n    $scope.model.firstName = accountData.firstName;\n    $scope.model.lastName = accountData.lastName;\n    $scope.model.dateOfBirth = new Date(accountData.dateOfBirth);\n    $scope.model.profileNotes = accountData.profileNotes;\n    $scope.model.initialBalance = 0;\n}, (error) => {\n    console.error(error);\n});\n\n$scope.createAccount = function () {\n    $http.post(`/services/ts/codbex-sample-bpm-bank-core/api/accountData.ts?taskId=${taskId}`, {\n        initialBalance: $scope.model.initialBalance,\n    }).then((response) => {\n            alert(`Account created successfully`);\n        }, (response) => {\n            alert(`Failed to create new account: ${response.data.message}`);\n        }\n    );\n}",
+    "form": [
+        {
+            "controlId": "header",
+            "groupId": "fb-display",
+            "label": "Approve Account Opening",
+            "headerSize": 3
+        },
+        {
+            "controlId": "paragraph",
+            "groupId": "fb-display",
+            "format": true,
+            "text": "    ",
+            "model": ""
+        },
+        {
+            "controlId": "paragraph",
+            "groupId": "fb-display",
+            "format": true,
+            "text": "   ",
+            "model": ""
+        },
+        {
+            "controlId": "container-hbox",
+            "groupId": "fb-containers",
+            "children": [
+                {
+                    "controlId": "header",
+                    "groupId": "fb-display",
+                    "label": "First Name:",
+                    "headerSize": 6
+                },
+                {
+                    "controlId": "paragraph",
+                    "groupId": "fb-display",
+                    "format": true,
+                    "text": "firstName",
+                    "model": "firstName"
+                },
+                {
+                    "controlId": "header",
+                    "groupId": "fb-display",
+                    "label": "Last Name:",
+                    "headerSize": 6
+                },
+                {
+                    "controlId": "paragraph",
+                    "groupId": "fb-display",
+                    "format": true,
+                    "text": "lastName",
+                    "model": "lastName"
+                },
+                {
+                    "controlId": "header",
+                    "groupId": "fb-display",
+                    "label": "Date of Birth:",
+                    "headerSize": 6
+                },
+                {
+                    "controlId": "paragraph",
+                    "groupId": "fb-display",
+                    "format": true,
+                    "text": "dateOfBirth",
+                    "model": "dateOfBirth"
+                }
+            ]
+        },
+        {
+            "controlId": "paragraph",
+            "groupId": "fb-display",
+            "format": true,
+            "text": "   ",
+            "model": ""
+        },
+        {
+            "controlId": "paragraph",
+            "groupId": "fb-display",
+            "format": true,
+            "text": "   ",
+            "model": ""
+        },
+        {
+            "controlId": "paragraph",
+            "groupId": "fb-display",
+            "format": true,
+            "text": "   ",
+            "model": ""
+        },
+        {
+            "controlId": "paragraph",
+            "groupId": "fb-display",
+            "format": true,
+            "text": "   ",
+            "model": ""
+        },
+        {
+            "controlId": "container-hbox",
+            "groupId": "fb-containers",
+            "children": [
+                {
+                    "controlId": "header",
+                    "groupId": "fb-display",
+                    "label": "Customer Number:",
+                    "headerSize": 6
+                },
+                {
+                    "controlId": "paragraph",
+                    "groupId": "fb-display",
+                    "format": true,
+                    "text": "customerNumber",
+                    "model": "customerNumber"
+                },
+                {
+                    "controlId": "header",
+                    "groupId": "fb-display",
+                    "label": "Profile Notes:",
+                    "headerSize": 6
+                },
+                {
+                    "controlId": "paragraph",
+                    "groupId": "fb-display",
+                    "format": true,
+                    "text": "profileNotes",
+                    "model": "profileNotes"
+                }
+            ]
+        },
+        {
+            "controlId": "input-number",
+            "groupId": "fb-controls",
+            "id": "i73e79d42-d5ca-1abd-a380-340b48ed987d",
+            "label": "Initial Balance",
+            "horizontal": false,
+            "isCompact": false,
+            "placeholder": "",
+            "model": "initialBalance",
+            "required": true,
+            "minNum": 0,
+            "maxNum": 999999999999,
+            "step": 1
+        },
+        {
+            "controlId": "button",
+            "groupId": "fb-controls",
+            "label": "Create Account",
+            "type": "positive",
+            "sizeToText": false,
+            "isSubmit": true,
+            "isCompact": false,
+            "callback": "createAccount()"
+        }
+    ]
+}

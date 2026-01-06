@@ -7,20 +7,17 @@ import { Tracer } from '../utils/Tracer';
 const tracer = new Tracer();
 
 try {
-    const idCardData: Record<string, string> = Process.getExecutionContext().getVariable('idCardData');
+    const customerData: Record<string, any> = Process.getExecutionContext().getVariable('customerData');
 
     const repository = new CustomerRepository();
 
+    const customerNumber = `CUST-${UUID.random().substring(0, 8).toUpperCase()}`;
     const customerId = repository.create({
-        customerNumber: `CUST-${UUID.random().substring(0, 8)}`,
-        firstName: idCardData['Име'] ?? idCardData['Name'],
-        lastName: idCardData['Фамилия'] ?? idCardData[`Father's name`],
-        dateOfBirth: idCardData['Дата Ha раждане/Date of birth'] ? new Date(idCardData['Дата Ha раждане/Date of birth']) : undefined,
-        profileNotes: `
-            Personal No: ${idCardData['ETH/Personal No']},
-            Document number: ${idCardData['№ Ha документа / Document number']},
-            Sex: ${idCardData['Пол/Sеx']},
-        `
+        customerNumber: customerNumber,
+        firstName: customerData.firstName,
+        lastName: customerData.lastName,
+        dateOfBirth: customerData.dateOfBirth,
+        profileNotes: customerData.profileNotes,
         // type defaults to 'I'
         // isActive defaults to true
         // riskScore defaults to 0.0
@@ -28,8 +25,9 @@ try {
     });
 
     Process.getExecutionContext().setVariable('customerId', customerId);
+    Process.getExecutionContext().setVariable('customerNumber', customerNumber);
 
-    tracer.complete(`Customer created with id=[${customerId}].`);
+    tracer.complete(`Customer created with id=[${customerId}] and number=[${customerNumber}].`);
 } catch (e: any) {
     tracer.fail(e.message);
     throw e;
