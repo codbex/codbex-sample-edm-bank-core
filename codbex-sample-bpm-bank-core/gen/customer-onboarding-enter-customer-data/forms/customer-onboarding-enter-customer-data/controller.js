@@ -36,6 +36,8 @@ angular.module('forms', ['blimpKit', 'platformView', 'platformLocale']).controll
         }).then((response) => {
             alert(`Customer created successfully`);
             $scope.model = {};
+            const img = document.querySelector('.bk-contain-image');
+            img.src = '/services/web/resources/images/unknown.svg';
         }, (response) => {
             alert(`Failed to create new customer: ${response.data.message}`);
         });
