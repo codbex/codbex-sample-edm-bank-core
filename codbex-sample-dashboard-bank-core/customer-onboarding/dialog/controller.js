@@ -14,22 +14,21 @@ angular.module('forms', ['blimpKit', 'platformView', 'angularFileUpload']).contr
         url: documentsApi
     });
 
+    const folderPath = getFolder();
+
     $scope.uploader.headers['X-Requested-With'] = 'Fetch';
 
     $scope.uploader.onAfterAddingAll = (addedFileItems) => {
         $scope.fileName = addedFileItems[0].file.name;
-        addedFileItems[0].url = `${documentsApi}?path=/${getFolder()}/${$scope.fileName}`;
-        debugger
+        addedFileItems[0].url = `${documentsApi}?path=/${folderPath}`;
         $scope.loading = true;
 
         $http.post('/services/js/documents/api/documents.js/folder', {
             parentFolder: '/',
-            name: `${getFolder()}`
+            name: `${folderPath}`
         }).then((_response) => {
-            debugger
             $scope.uploader.uploadAll();
         }, (response) => {
-            debugger
             console.error(response);
             Notifications.show({
                 title: 'Failed to upload item',
@@ -40,7 +39,6 @@ angular.module('forms', ['blimpKit', 'platformView', 'angularFileUpload']).contr
     }
 
     $scope.uploader.onErrorItem = (_fileItem, response, _status, _headers) => {
-        debugger
         $scope.loading = false;
 
         Notifications.show({
@@ -51,8 +49,7 @@ angular.module('forms', ['blimpKit', 'platformView', 'angularFileUpload']).contr
     }
 
     $scope.uploader.onCompleteAll = () => {
-        debugger
-        const documentPath = `${getFolder()}/${$scope.fileName}`;
+        const documentPath = `${folderPath}/${$scope.fileName}`;
 
         Notifications.show({
             title: 'Document uploaded successfully',
@@ -93,13 +90,11 @@ angular.module('forms', ['blimpKit', 'platformView', 'angularFileUpload']).contr
 
         const timestamp = now.toISOString()
             .replace(/T/, '/')
-            .replace(/:/g, '-')
             .replace(/\..+/, '');
 
         const uuid = crypto.randomUUID();
 
-        // return `BankCore/${timestamp}/${uuid}`;
-        return `BankCore`;
+        return `BankCore/${timestamp}/${uuid}`;
     }
 
 });
