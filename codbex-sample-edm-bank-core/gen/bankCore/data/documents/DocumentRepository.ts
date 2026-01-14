@@ -1,8 +1,10 @@
-import { Repository, EntityEvent, EntityConstructor } from '@aerokit/sdk/db';
-import { Producer } from '@aerokit/sdk/messaging';
-import { Extensions } from '@aerokit/sdk/extensions';
-import { DocumentEntity } from './DocumentEntity';
+import { Repository, EntityEvent, EntityConstructor } from '@aerokit/sdk/db'
+import { Component } from '@aerokit/sdk/component'
+import { Producer } from '@aerokit/sdk/messaging'
+import { Extensions } from '@aerokit/sdk/extensions'
+import { DocumentEntity } from './DocumentEntity'
 
+@Component('DocumentRepository')
 export class DocumentRepository extends Repository<DocumentEntity> {
 
     constructor() {

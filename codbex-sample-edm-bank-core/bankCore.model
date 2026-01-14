@@ -28,6 +28,7 @@
                         "name": "customerNumber",
                         "tooltip": "",
                         "widgetIsMajor": "true",
+                        "widgetLabel": "Customer Number",
                         "widgetLength": "20",
                         "widgetSize": "",
                         "widgetType": "TEXTBOX"
@@ -42,6 +43,7 @@
                         "name": "type",
                         "tooltip": "",
                         "widgetIsMajor": "true",
+                        "widgetLabel": "Type",
                         "widgetLength": "20",
                         "widgetSize": "",
                         "widgetType": "TEXTBOX"
@@ -56,6 +58,7 @@
                         "name": "firstName",
                         "tooltip": "",
                         "widgetIsMajor": "true",
+                        "widgetLabel": "First Name",
                         "widgetLength": "20",
                         "widgetSize": "",
                         "widgetType": "TEXTBOX"
@@ -70,6 +73,7 @@
                         "name": "lastName",
                         "tooltip": "",
                         "widgetIsMajor": "true",
+                        "widgetLabel": "Last Name",
                         "widgetLength": "20",
                         "widgetSize": "",
                         "widgetType": "TEXTBOX"
@@ -82,9 +86,10 @@
                         "name": "dateOfBirth",
                         "tooltip": "",
                         "widgetIsMajor": "true",
+                        "widgetLabel": "Date of Birth",
                         "widgetLength": "20",
                         "widgetSize": "",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "DATE"
                     },
                     {
                         "dataDefaultValue": "true",
@@ -95,9 +100,10 @@
                         "name": "isActive",
                         "tooltip": "",
                         "widgetIsMajor": "true",
+                        "widgetLabel": "Active",
                         "widgetLength": "20",
                         "widgetSize": "",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "CHECKBOX"
                     },
                     {
                         "dataDefaultValue": "0",
@@ -108,9 +114,10 @@
                         "name": "riskScore",
                         "tooltip": "",
                         "widgetIsMajor": "true",
+                        "widgetLabel": "Risk Score",
                         "widgetLength": "20",
                         "widgetSize": "",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "NUMBER"
                     },
                     {
                         "dataName": "CUSTOMER_PROFILENOTES",
@@ -120,9 +127,10 @@
                         "name": "profileNotes",
                         "tooltip": "",
                         "widgetIsMajor": "true",
+                        "widgetLabel": "Profile Notes",
                         "widgetLength": "20",
                         "widgetSize": "",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "TEXTAREA"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "new Date()",
@@ -133,10 +141,11 @@
                         "isCalculatedProperty": "true",
                         "name": "createdAt",
                         "tooltip": "",
-                        "widgetIsMajor": "true",
+                        "widgetIsMajor": "false",
+                        "widgetLabel": "Created At",
                         "widgetLength": "20",
                         "widgetSize": "",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "DATETIME-LOCAL"
                     },
                     {
                         "calculatedPropertyExpressionUpdate": "new Date()",
@@ -147,10 +156,11 @@
                         "isCalculatedProperty": "true",
                         "name": "updatedAt",
                         "tooltip": "",
-                        "widgetIsMajor": "true",
+                        "widgetIsMajor": "false",
+                        "widgetLabel": "Updated At",
                         "widgetLength": "20",
                         "widgetSize": "",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "DATETIME-LOCAL"
                     }
                 ],
                 "caption": "Manage entity Customer",
@@ -205,6 +215,7 @@
                         "name": "iban",
                         "tooltip": "",
                         "widgetIsMajor": "true",
+                        "widgetLabel": "IBAN",
                         "widgetLength": "20",
                         "widgetSize": "",
                         "widgetType": "TEXTBOX"
@@ -219,6 +230,7 @@
                         "widgetDropDownKey": "id",
                         "widgetDropDownValue": "customerNumber",
                         "widgetIsMajor": "true",
+                        "widgetLabel": "Customer",
                         "widgetLength": "20",
                         "widgetSize": "",
                         "widgetType": "DROPDOWN",
@@ -237,6 +249,7 @@
                         "name": "currency",
                         "tooltip": "",
                         "widgetIsMajor": "true",
+                        "widgetLabel": "Currency",
                         "widgetLength": "20",
                         "widgetSize": "",
                         "widgetType": "TEXTBOX"
@@ -253,9 +266,10 @@
                         "name": "balance",
                         "tooltip": "",
                         "widgetIsMajor": "true",
+                        "widgetLabel": "Balance",
                         "widgetLength": "20",
                         "widgetSize": "",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "NUMBER"
                     },
                     {
                         "dataDefaultValue": "0",
@@ -269,9 +283,10 @@
                         "name": "overdraftLimit",
                         "tooltip": "",
                         "widgetIsMajor": "true",
+                        "widgetLabel": "Overdraft Limit",
                         "widgetLength": "20",
                         "widgetSize": "",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "NUMBER"
                     },
                     {
                         "dataDefaultValue": "1",
@@ -282,6 +297,7 @@
                         "name": "status",
                         "tooltip": "",
                         "widgetIsMajor": "true",
+                        "widgetLabel": "Status",
                         "widgetLength": "20",
                         "widgetSize": "",
                         "widgetType": "TEXTBOX"
@@ -295,9 +311,11 @@
                         "name": "openedOn",
                         "tooltip": "",
                         "widgetIsMajor": "true",
+                        "widgetLabel": "Opened On",
                         "widgetLength": "20",
+                        "widgetSection": "",
                         "widgetSize": "",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "DATE"
                     },
                     {
                         "dataName": "ACCOUNT_LASTACCESSTIME",
@@ -307,9 +325,10 @@
                         "name": "lastAccessTime",
                         "tooltip": "",
                         "widgetIsMajor": "true",
+                        "widgetLabel": "Last Access Time",
                         "widgetLength": "20",
                         "widgetSize": "",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "TIME"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "new Date()",
@@ -320,10 +339,11 @@
                         "isCalculatedProperty": "true",
                         "name": "createdAt",
                         "tooltip": "",
-                        "widgetIsMajor": "true",
+                        "widgetIsMajor": "false",
+                        "widgetLabel": "Created At",
                         "widgetLength": "20",
                         "widgetSize": "",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "DATETIME-LOCAL"
                     },
                     {
                         "calculatedPropertyExpressionUpdate": "new Date()",
@@ -334,10 +354,11 @@
                         "isCalculatedProperty": "true",
                         "name": "updatedAt",
                         "tooltip": "",
-                        "widgetIsMajor": "true",
+                        "widgetIsMajor": "false",
+                        "widgetLabel": "Updated At",
                         "widgetLength": "20",
                         "widgetSize": "",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "DATETIME-LOCAL"
                     }
                 ],
                 "caption": "Manage entity Account",
@@ -396,6 +417,7 @@
                         "widgetDropDownKey": "id",
                         "widgetDropDownValue": "iban",
                         "widgetIsMajor": "true",
+                        "widgetLabel": "Account",
                         "widgetLength": "20",
                         "widgetSize": "",
                         "widgetType": "DROPDOWN",
@@ -414,6 +436,7 @@
                         "name": "reference",
                         "tooltip": "",
                         "widgetIsMajor": "true",
+                        "widgetLabel": "Reference",
                         "widgetLength": "20",
                         "widgetSize": "",
                         "widgetType": "TEXTBOX"
@@ -430,9 +453,10 @@
                         "name": "amount",
                         "tooltip": "",
                         "widgetIsMajor": "true",
+                        "widgetLabel": "Amount",
                         "widgetLength": "20",
                         "widgetSize": "",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "NUMBER"
                     },
                     {
                         "dataLength": "1",
@@ -443,6 +467,7 @@
                         "name": "direction",
                         "tooltip": "",
                         "widgetIsMajor": "true",
+                        "widgetLabel": "Direction",
                         "widgetLength": "20",
                         "widgetSize": "",
                         "widgetType": "TEXTBOX"
@@ -456,9 +481,10 @@
                         "name": "fee",
                         "tooltip": "",
                         "widgetIsMajor": "true",
+                        "widgetLabel": "Fee",
                         "widgetLength": "20",
                         "widgetSize": "",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "NUMBER"
                     },
                     {
                         "dataName": "TRANSACTION_EXCHANGERATE",
@@ -468,9 +494,10 @@
                         "name": "exchangeRate",
                         "tooltip": "",
                         "widgetIsMajor": "true",
+                        "widgetLabel": "Exchange Rate",
                         "widgetLength": "20",
                         "widgetSize": "",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "NUMBER"
                     },
                     {
                         "dataDefaultValue": "false",
@@ -481,9 +508,10 @@
                         "name": "approved",
                         "tooltip": "",
                         "widgetIsMajor": "true",
+                        "widgetLabel": "Approved",
                         "widgetLength": "20",
                         "widgetSize": "",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "CHECKBOX"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "new Date()",
@@ -494,10 +522,11 @@
                         "isCalculatedProperty": "true",
                         "name": "createdOn",
                         "tooltip": "",
-                        "widgetIsMajor": "true",
+                        "widgetIsMajor": "false",
+                        "widgetLabel": "Created On",
                         "widgetLength": "20",
                         "widgetSize": "",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "DATETIME-LOCAL"
                     }
                 ],
                 "caption": "Manage entity Transaction",
@@ -551,6 +580,7 @@
                         "widgetDropDownKey": "id",
                         "widgetDropDownValue": "customerNumber",
                         "widgetIsMajor": "true",
+                        "widgetLabel": "Customer",
                         "widgetLength": "20",
                         "widgetSize": "",
                         "widgetType": "DROPDOWN",
@@ -569,6 +599,7 @@
                         "name": "documentType",
                         "tooltip": "",
                         "widgetIsMajor": "true",
+                        "widgetLabel": "Document Type",
                         "widgetLength": "20",
                         "widgetSize": "",
                         "widgetType": "TEXTBOX"
@@ -583,6 +614,7 @@
                         "name": "fileName",
                         "tooltip": "",
                         "widgetIsMajor": "true",
+                        "widgetLabel": "File Name",
                         "widgetLength": "20",
                         "widgetSize": "",
                         "widgetType": "TEXTBOX"
@@ -594,10 +626,11 @@
                         "description": "",
                         "name": "content",
                         "tooltip": "",
-                        "widgetIsMajor": "true",
+                        "widgetIsMajor": "false",
+                        "widgetLabel": "Content",
                         "widgetLength": "20",
                         "widgetSize": "",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "TEXTAREA"
                     },
                     {
                         "dataLength": "64",
@@ -609,6 +642,7 @@
                         "name": "checksum",
                         "tooltip": "",
                         "widgetIsMajor": "true",
+                        "widgetLabel": "Checksum",
                         "widgetLength": "20",
                         "widgetSize": "",
                         "widgetType": "TEXTBOX"
@@ -622,10 +656,11 @@
                         "isCalculatedProperty": "true",
                         "name": "uploadedAt",
                         "tooltip": "",
-                        "widgetIsMajor": "true",
+                        "widgetIsMajor": "false",
+                        "widgetLabel": "Updated At",
                         "widgetLength": "20",
                         "widgetSize": "",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "DATETIME-LOCAL"
                     }
                 ],
                 "caption": "Manage entity Document",
@@ -679,6 +714,7 @@
                         "name": "entityName",
                         "tooltip": "",
                         "widgetIsMajor": "true",
+                        "widgetLabel": "Entity Name",
                         "widgetLength": "20",
                         "widgetSize": "",
                         "widgetType": "TEXTBOX"
@@ -691,9 +727,10 @@
                         "name": "entityId",
                         "tooltip": "",
                         "widgetIsMajor": "true",
+                        "widgetLabel": "Entity Id",
                         "widgetLength": "20",
                         "widgetSize": "",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "NUMBER"
                     },
                     {
                         "dataLength": "1",
@@ -705,6 +742,7 @@
                         "name": "operation",
                         "tooltip": "",
                         "widgetIsMajor": "true",
+                        "widgetLabel": "Operation",
                         "widgetLength": "20",
                         "widgetSize": "",
                         "widgetType": "TEXTBOX"
@@ -716,10 +754,11 @@
                         "description": "",
                         "name": "oldValue",
                         "tooltip": "",
-                        "widgetIsMajor": "true",
+                        "widgetIsMajor": "false",
+                        "widgetLabel": "Old Value",
                         "widgetLength": "20",
                         "widgetSize": "",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "TEXTAREA"
                     },
                     {
                         "dataName": "AUDITLOG_NEWVALUE",
@@ -728,10 +767,11 @@
                         "description": "",
                         "name": "newValue",
                         "tooltip": "",
-                        "widgetIsMajor": "true",
+                        "widgetIsMajor": "false",
+                        "widgetLabel": "New Value",
                         "widgetLength": "20",
                         "widgetSize": "",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "TEXTAREA"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "new Date()",
@@ -742,10 +782,11 @@
                         "isCalculatedProperty": "true",
                         "name": "createdAt",
                         "tooltip": "",
-                        "widgetIsMajor": "true",
+                        "widgetIsMajor": "false",
+                        "widgetLabel": "Created At",
                         "widgetLength": "20",
                         "widgetSize": "",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "DATETIME-LOCAL"
                     }
                 ],
                 "caption": "Manage entity AuditLog",

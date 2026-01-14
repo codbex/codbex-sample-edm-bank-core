@@ -1,15 +1,8 @@
-import {
-    Entity,
-    Table,
-    Id,
-    Generated,
-    Column,
-    Documentation
-} from '@aerokit/sdk/db';
+import { Entity, Table, Id, Generated, Column, Documentation } from '@aerokit/sdk/db'
 
 @Entity('AccountEntity')
 @Table('SAMPLE_BANK_ACCOUNT')
-@Documentation('AccountEntity - Manage entity Account')
+@Documentation('Account entity mapping')
 export class AccountEntity {
 
     @Id()

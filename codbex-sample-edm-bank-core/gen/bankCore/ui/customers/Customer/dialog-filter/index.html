@@ -1,0 +1,234 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="page" ng-controller="PageController">
+
+    <head>
+		<meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" sizes="any" href="data:;base64,iVBORw0KGgo=">
+        <title config-title></title>
+        <script type="text/javascript" src="view.js"></script>
+        <script type="text/javascript" src="/services/js/platform-core/services/loader.js?id=view-js"></script>
+        <link type="text/css" rel="stylesheet" href="/services/js/platform-core/services/loader.js?id=view-css" />
+        <script type="text/javascript" src="controller.js"></script>
+    </head>
+
+    <body class="bk-vbox">
+        <bk-scrollbar class="bk-full-height">
+            <bk-message-strip class="fd-margin--md" ng-show="errorMessage" glyph="sap-icon--message-error" state="error" on-dismiss="clearErrorMessage()">{{ errorMessage }}</bk-message-strip>
+
+            <bk-fieldset class="fd-padding-begin-end--sm" ng-form="forms.details">
+                <bk-form-group label="{{ 'codbex-sample-edm-bank-core:bankCore-model.defaults.formGrpFilter' | t:{'name':'$t(codbex-sample-edm-bank-core:bankCore-model.t.CUSTOMER)'} }}" name="entityForm" transclude-classes="fd-container fd-form-layout-grid-container">
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idcustomerNumber" colon="true">{{ 'codbex-sample-edm-bank-core:bankCore-model.t.CUSTOMER_CUSTOMERNUMBER' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col fd-col-md--8">
+							<bk-form-input-message state="{{ forms.details['customerNumber'].$valid ? '' : 'error' }}" text="{{'codbex-sample-edm-bank-core:bankCore-model.messages.error.incorrectInput' | t}}">
+								<bk-input id="idcustomerNumber"
+	                                name="customerNumber"
+	                                state="{{ forms.details['customerNumber'].$valid ? '' : 'error' }}"
+	                                ng-model="entity.customerNumber"
+									ng-maxlength="20.0"
+	                                type="text"
+	                                placeholder="{{ 'codbex-sample-edm-bank-core:bankCore-model.messages.inputEnter' | t:{'name':'$t(codbex-sample-edm-bank-core:bankCore-model.t.CUSTOMER_CUSTOMERNUMBER)'} }}">
+	                            </bk-input>
+							</bk-form-input-message>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idtype" colon="true">{{ 'codbex-sample-edm-bank-core:bankCore-model.t.CUSTOMER_TYPE' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col fd-col-md--8">
+							<bk-form-input-message state="{{ forms.details['type'].$valid ? '' : 'error' }}" text="{{'codbex-sample-edm-bank-core:bankCore-model.messages.error.incorrectInput' | t}}">
+								<bk-input id="idtype"
+	                                name="type"
+	                                state="{{ forms.details['type'].$valid ? '' : 'error' }}"
+	                                ng-model="entity.type"
+									ng-maxlength="1.0"
+	                                type="text"
+	                                placeholder="{{ 'codbex-sample-edm-bank-core:bankCore-model.messages.inputEnter' | t:{'name':'$t(codbex-sample-edm-bank-core:bankCore-model.t.CUSTOMER_TYPE)'} }}">
+	                            </bk-input>
+							</bk-form-input-message>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idfirstName" colon="true">{{ 'codbex-sample-edm-bank-core:bankCore-model.t.CUSTOMER_FIRSTNAME' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col fd-col-md--8">
+							<bk-form-input-message state="{{ forms.details['firstName'].$valid ? '' : 'error' }}" text="{{'codbex-sample-edm-bank-core:bankCore-model.messages.error.incorrectInput' | t}}">
+								<bk-input id="idfirstName"
+	                                name="firstName"
+	                                state="{{ forms.details['firstName'].$valid ? '' : 'error' }}"
+	                                ng-model="entity.firstName"
+									ng-maxlength="20.0"
+	                                type="text"
+	                                placeholder="{{ 'codbex-sample-edm-bank-core:bankCore-model.messages.inputEnter' | t:{'name':'$t(codbex-sample-edm-bank-core:bankCore-model.t.CUSTOMER_FIRSTNAME)'} }}">
+	                            </bk-input>
+							</bk-form-input-message>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idlastName" colon="true">{{ 'codbex-sample-edm-bank-core:bankCore-model.t.CUSTOMER_LASTNAME' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col fd-col-md--8">
+							<bk-form-input-message state="{{ forms.details['lastName'].$valid ? '' : 'error' }}" text="{{'codbex-sample-edm-bank-core:bankCore-model.messages.error.incorrectInput' | t}}">
+								<bk-input id="idlastName"
+	                                name="lastName"
+	                                state="{{ forms.details['lastName'].$valid ? '' : 'error' }}"
+	                                ng-model="entity.lastName"
+									ng-maxlength="20.0"
+	                                type="text"
+	                                placeholder="{{ 'codbex-sample-edm-bank-core:bankCore-model.messages.inputEnter' | t:{'name':'$t(codbex-sample-edm-bank-core:bankCore-model.t.CUSTOMER_LASTNAME)'} }}">
+	                            </bk-input>
+							</bk-form-input-message>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="iddateOfBirthFrom" colon="true">{{ 'codbex-sample-edm-bank-core:bankCore-model.defaults.from' | t:{'text':'$t(codbex-sample-edm-bank-core:bankCore-model.t.CUSTOMER_DATEOFBIRTH)'} }}</bk-form-label>
+                        </div>
+                        <div class="fd-col fd-col-md--2">
+							<bk-form-input-message state="{{ forms.details['dateOfBirth'].$valid ? '' : 'error' }}" text="{{'codbex-sample-edm-bank-core:bankCore-model.messages.error.incorrectInput' | t}}">
+								<bk-input id="iddateOfBirthFrom"
+	                                name="dateOfBirth"
+	                                state="{{ forms.details['dateOfBirth'].$valid ? '' : 'error' }}"
+	                                ng-model="entity.dateOfBirthFrom"
+	                                type="date">
+	                            </bk-input>
+							</bk-form-input-message>
+	                    </div>
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="iddateOfBirthTo" colon="true">{{ 'codbex-sample-edm-bank-core:bankCore-model.defaults.to' | t:{'text':'$t(codbex-sample-edm-bank-core:bankCore-model.t.CUSTOMER_DATEOFBIRTH)'} }}</bk-form-label>
+                        </div>
+                        <div class="fd-col fd-col-md--2">
+							<bk-form-input-message state="{{ forms.details['dateOfBirth'].$valid ? '' : 'error' }}" text="{{'codbex-sample-edm-bank-core:bankCore-model.messages.error.incorrectInput' | t}}">
+								<bk-input id="iddateOfBirthTo"
+	                                name="dateOfBirth"
+	                                state="{{ forms.details['dateOfBirth'].$valid ? '' : 'error' }}"
+	                                ng-model="entity.dateOfBirthTo"
+	                                type="date">
+	                            </bk-input>
+							</bk-form-input-message>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2"></div>
+	                    <div class="fd-col fd-col-md--8">
+							<bk-checkbox id="idisActive"
+	                            compact="false"
+								ng-init="entity.isisActiveIndeterminate=true"
+								ng-model="entity.isActive"
+								indeterminate="entity.isisActiveIndeterminate"
+								ng-click="entity.isisActiveIndeterminate=false">
+	                        </bk-checkbox>
+                        	<bk-checkbox-label for="idisActive">{{ 'codbex-sample-edm-bank-core:bankCore-model.t.CUSTOMER_ISACTIVE' | t }}</bk-checkbox-label>
+                        </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idriskScore" colon="true">{{ 'codbex-sample-edm-bank-core:bankCore-model.t.CUSTOMER_RISKSCORE' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col fd-col-md--4">
+	                        <bk-step-input input-id="idriskScore"
+								name="riskScore"
+								state="{{ forms.details['riskScore'].$valid ? '' : 'error' }}"
+								ng-model="entity.riskScore"
+								placeholder="{{ 'codbex-sample-edm-bank-core:bankCore-model.messages.inputEnter' | t:{'name':'$t(codbex-sample-edm-bank-core:bankCore-model.t.CUSTOMER_RISKSCORE)'} }}">
+							</bk-step-input>
+	                    </div>
+                    </bk-form-item>
+					<bk-form-item class="fd-row">
+						<div class="fd-col fd-col-md--2">
+							<bk-form-label for="idprofileNotes" colon="true">{{ 'codbex-sample-edm-bank-core:bankCore-model.t.CUSTOMER_PROFILENOTES' | t }}</bk-form-label>
+						</div>
+						<div class="fd-col fd-col-md--8">
+							<bk-form-input-message state="{{ forms.details['profileNotes'].$valid ? '' : 'error' }}" text="{{'codbex-sample-edm-bank-core:bankCore-model.messages.error.incorrectInput' | t}}">
+								<bk-textarea id="idprofileNotes"
+									name="profileNotes"
+									state="{{ forms.details['profileNotes'].$valid ? '' : 'error' }}"
+									ng-model="entity.profileNotes"
+									placeholder="{{ 'codbex-sample-edm-bank-core:bankCore-model.messages.inputEnter' | t:{'name':'$t(codbex-sample-edm-bank-core:bankCore-model.t.CUSTOMER_PROFILENOTES)'} }}">
+								</bk-textarea>
+							</bk-form-input-message>
+						</div>
+					</bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idcreatedAtFrom" colon="true">{{ 'codbex-sample-edm-bank-core:bankCore-model.defaults.from' | t:{'text':'$t(codbex-sample-edm-bank-core:bankCore-model.t.CUSTOMER_CREATEDAT)'} }}</bk-form-label>
+                        </div>
+                        <div class="fd-col fd-col-md--3">
+							<bk-form-input-message state="{{ forms.details['createdAt'].$valid ? '' : 'error' }}" text="{{'codbex-sample-edm-bank-core:bankCore-model.messages.error.incorrectInput' | t}}">
+								<bk-input id="idcreatedAtFrom"
+	                                name="createdAt"
+	                                state="{{ forms.details['createdAt'].$valid ? '' : 'error' }}"
+	                                ng-model="entity.createdAtFrom"
+	                                type="datetime-local">
+	                            </bk-input>
+							</bk-form-input-message>
+	                    </div>
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idcreatedAtTo" colon="true">{{ 'codbex-sample-edm-bank-core:bankCore-model.defaults.to' | t:{'text':'$t(codbex-sample-edm-bank-core:bankCore-model.t.CUSTOMER_CREATEDAT)'} }}</bk-form-label>
+                        </div>
+                        <div class="fd-col fd-col-md--3">
+							<bk-form-input-message state="{{ forms.details['createdAt'].$valid ? '' : 'error' }}" text="{{'codbex-sample-edm-bank-core:bankCore-model.messages.error.incorrectInput' | t}}">
+								<bk-input id="idcreatedAtTo"
+	                                name="createdAt"
+	                                state="{{ forms.details['createdAt'].$valid ? '' : 'error' }}"
+	                                ng-model="entity.createdAtTo"
+	                                type="datetime-local">
+	                            </bk-input>
+							</bk-form-input-message>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idupdatedAtFrom" colon="true">{{ 'codbex-sample-edm-bank-core:bankCore-model.defaults.from' | t:{'text':'$t(codbex-sample-edm-bank-core:bankCore-model.t.CUSTOMER_UPDATEDAT)'} }}</bk-form-label>
+                        </div>
+                        <div class="fd-col fd-col-md--3">
+							<bk-form-input-message state="{{ forms.details['updatedAt'].$valid ? '' : 'error' }}" text="{{'codbex-sample-edm-bank-core:bankCore-model.messages.error.incorrectInput' | t}}">
+								<bk-input id="idupdatedAtFrom"
+	                                name="updatedAt"
+	                                state="{{ forms.details['updatedAt'].$valid ? '' : 'error' }}"
+	                                ng-model="entity.updatedAtFrom"
+	                                type="datetime-local">
+	                            </bk-input>
+							</bk-form-input-message>
+	                    </div>
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idupdatedAtTo" colon="true">{{ 'codbex-sample-edm-bank-core:bankCore-model.defaults.to' | t:{'text':'$t(codbex-sample-edm-bank-core:bankCore-model.t.CUSTOMER_UPDATEDAT)'} }}</bk-form-label>
+                        </div>
+                        <div class="fd-col fd-col-md--3">
+							<bk-form-input-message state="{{ forms.details['updatedAt'].$valid ? '' : 'error' }}" text="{{'codbex-sample-edm-bank-core:bankCore-model.messages.error.incorrectInput' | t}}">
+								<bk-input id="idupdatedAtTo"
+	                                name="updatedAt"
+	                                state="{{ forms.details['updatedAt'].$valid ? '' : 'error' }}"
+	                                ng-model="entity.updatedAtTo"
+	                                type="datetime-local">
+	                            </bk-input>
+							</bk-form-input-message>
+	                    </div>
+                    </bk-form-item>
+                </bk-form-group>
+            </bk-fieldset>
+        </bk-scrollbar>
+
+		<bk-bar bar-design="footer" compact="true" ng-show="action !== 'select'">
+			<bk-bar-right>
+				<bk-bar-element>
+					<bk-button label="{{ 'codbex-sample-edm-bank-core:bankCore-model.defaults.filter' | t }}" state="emphasized" ng-click="filter()"></bk-button>
+				</bk-bar-element>
+				<bk-bar-element>
+					<bk-button label="{{ 'codbex-sample-edm-bank-core:bankCore-model.defaults.reset' | t }}" ng-click="resetFilter()"></bk-button>
+				</bk-bar-element>
+				<bk-bar-element>
+					<bk-button label="{{ 'codbex-sample-edm-bank-core:bankCore-model.defaults.cancel' | t }}" ng-click="cancel()"></bk-button>
+				</bk-bar-element>
+			</bk-bar-right>
+		</bk-bar>
+		<theme></theme>
+    </body>
+
+</html>

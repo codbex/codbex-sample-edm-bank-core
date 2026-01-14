@@ -1,8 +1,10 @@
-import { Repository, EntityEvent, EntityConstructor } from '@aerokit/sdk/db';
-import { Producer } from '@aerokit/sdk/messaging';
-import { Extensions } from '@aerokit/sdk/extensions';
-import { AuditLogEntity } from './AuditLogEntity';
+import { Repository, EntityEvent, EntityConstructor } from '@aerokit/sdk/db'
+import { Component } from '@aerokit/sdk/component'
+import { Producer } from '@aerokit/sdk/messaging'
+import { Extensions } from '@aerokit/sdk/extensions'
+import { AuditLogEntity } from './AuditLogEntity'
 
+@Component('AuditLogRepository')
 export class AuditLogRepository extends Repository<AuditLogEntity> {
 
     constructor() {

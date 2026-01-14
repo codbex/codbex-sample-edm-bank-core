@@ -1,0 +1,206 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="page" ng-controller="PageController">
+
+    <head>
+		<meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" sizes="any" href="data:;base64,iVBORw0KGgo=">
+        <title config-title></title>
+        <script type="text/javascript" src="view.js"></script>
+        <script type="text/javascript" src="/services/js/platform-core/services/loader.js?id=view-js"></script>
+		<script type="text/javascript" src="/services/web/dashboard/services/entity.js"></script>
+        <link type="text/css" rel="stylesheet" href="/services/js/platform-core/services/loader.js?id=view-css" />
+        <script type="text/javascript" src="controller.js"></script>
+    </head>
+
+    <body class="bk-vbox">
+        <bk-scrollbar class="bk-full-height">
+			<bk-message-strip class="fd-margin--md" ng-show="errorMessage" glyph="sap-icon--message-error" state="error" on-dismiss="clearErrorMessage()">{{ errorMessage }}</bk-message-strip>
+
+            <bk-fieldset class="fd-padding-begin-end--sm" ng-form="forms.details">
+                <bk-form-group label="{{formHeaders[action]}}" name="entityForm" transclude-classes="fd-container fd-form-layout-grid-container">
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idiban" ng-required="true" colon="true">{{ 'codbex-sample-edm-bank-core:bankCore-model.t.ACCOUNT_IBAN' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col  fd-col-md--8 ">
+							<bk-form-input-message state="{{ forms.details['iban'].$valid ? '' : 'error' }}" text="{{ 'codbex-sample-edm-bank-core:bankCore-model.messages.error.pattern' | t:{'rule':''} }}">
+								<bk-input id="idiban"
+	                                name="iban"
+	                                state="{{ forms.details['iban'].$valid ? '' : 'error' }}"
+									ng-required="true"
+	                                ng-model="entity.iban"
+	                                ng-readonly="action === 'select'"
+									ng-maxlength="20.0"
+	                                input-rules="{ patterns: [''] }"
+	                                type="text"
+	                                placeholder="{{ 'codbex-sample-edm-bank-core:bankCore-model.messages.inputEnter' | t:{'name':'$t(codbex-sample-edm-bank-core:bankCore-model.t.ACCOUNT_IBAN)'} }}">
+	                            </bk-input>
+							</bk-form-input-message>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idcustomerId" ng-required="false" colon="true">{{ 'codbex-sample-edm-bank-core:bankCore-model.t.ACCOUNT_CUSTOMERID' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col  fd-col-md--8 ">
+	                        <bk-combobox-input input-id="idcustomerId"
+	                            name="customerId"
+	                            state="{{ forms.details['customerId'].$valid ? '' : 'error' }}"
+	                            ng-required="false"
+	                            ng-model="entity.customerId"
+	                            is-readonly="action === 'select'"
+	                            dropdown-items="optionscustomerId"
+	                            placeholder="{{ 'codbex-sample-edm-bank-core:bankCore-model.messages.inputSearch' | t:{'name':'$t(codbex-sample-edm-bank-core:bankCore-model.t.ACCOUNT_CUSTOMERID)'} }}"
+								btn-aria-label="{{ 'codbex-sample-edm-bank-core:bankCore-model.aria.showHide' | t:{'name':'customerId'} }}" list-aria-label="{{ 'codbex-sample-edm-bank-core:bankCore-model.aria.options' | t:{'name':'customerId'} }}">
+	                        </bk-combobox-input>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idcurrency" ng-required="false" colon="true">{{ 'codbex-sample-edm-bank-core:bankCore-model.t.ACCOUNT_CURRENCY' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col  fd-col-md--8 ">
+							<bk-form-input-message state="{{ forms.details['currency'].$valid ? '' : 'error' }}" text="{{ 'codbex-sample-edm-bank-core:bankCore-model.messages.error.pattern' | t:{'rule':''} }}">
+								<bk-input id="idcurrency"
+	                                name="currency"
+	                                state="{{ forms.details['currency'].$valid ? '' : 'error' }}"
+									ng-required="false"
+	                                ng-model="entity.currency"
+	                                ng-readonly="action === 'select'"
+									ng-maxlength="3.0"
+	                                input-rules="{ patterns: [''] }"
+	                                type="text"
+	                                placeholder="{{ 'codbex-sample-edm-bank-core:bankCore-model.messages.inputEnter' | t:{'name':'$t(codbex-sample-edm-bank-core:bankCore-model.t.ACCOUNT_CURRENCY)'} }}">
+	                            </bk-input>
+							</bk-form-input-message>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idbalance" ng-required="false" colon="true">{{ 'codbex-sample-edm-bank-core:bankCore-model.t.ACCOUNT_BALANCE' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col  fd-col-md--4 ">
+	                        <bk-step-input input-id="idbalance"
+								name="balance"
+								state="{{ forms.details['balance'].$valid ? '' : 'error' }}"
+								is-required="false"
+								ng-model="entity.balance"
+								is-readonly="action === 'select'"
+								placeholder="{{ 'codbex-sample-edm-bank-core:bankCore-model.messages.inputEnter' | t:{'name':'$t(codbex-sample-edm-bank-core:bankCore-model.t.ACCOUNT_BALANCE)'} }}">
+							</bk-step-input>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idoverdraftLimit" ng-required="false" colon="true">{{ 'codbex-sample-edm-bank-core:bankCore-model.t.ACCOUNT_OVERDRAFTLIMIT' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col  fd-col-md--4 ">
+	                        <bk-step-input input-id="idoverdraftLimit"
+								name="overdraftLimit"
+								state="{{ forms.details['overdraftLimit'].$valid ? '' : 'error' }}"
+								is-required="false"
+								ng-model="entity.overdraftLimit"
+								is-readonly="action === 'select'"
+								placeholder="{{ 'codbex-sample-edm-bank-core:bankCore-model.messages.inputEnter' | t:{'name':'$t(codbex-sample-edm-bank-core:bankCore-model.t.ACCOUNT_OVERDRAFTLIMIT)'} }}">
+							</bk-step-input>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idstatus" ng-required="false" colon="true">{{ 'codbex-sample-edm-bank-core:bankCore-model.t.ACCOUNT_STATUS' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col  fd-col-md--8 ">
+							<bk-form-input-message state="{{ forms.details['status'].$valid ? '' : 'error' }}" text="{{ 'codbex-sample-edm-bank-core:bankCore-model.messages.error.pattern' | t:{'rule':''} }}">
+								<bk-input id="idstatus"
+	                                name="status"
+	                                state="{{ forms.details['status'].$valid ? '' : 'error' }}"
+									ng-required="false"
+	                                ng-model="entity.status"
+	                                ng-readonly="action === 'select'"
+	                                input-rules="{ patterns: [''] }"
+	                                type="text"
+	                                placeholder="{{ 'codbex-sample-edm-bank-core:bankCore-model.messages.inputEnter' | t:{'name':'$t(codbex-sample-edm-bank-core:bankCore-model.t.ACCOUNT_STATUS)'} }}">
+	                            </bk-input>
+							</bk-form-input-message>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idopenedOn" ng-required="false" colon="true">{{ 'codbex-sample-edm-bank-core:bankCore-model.t.ACCOUNT_OPENEDON' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col  fd-col-md--2 ">
+							<bk-form-input-message state="{{ forms.details['openedOn'].$valid ? '' : 'error' }}" text="{{'codbex-sample-edm-bank-core:bankCore-model.messages.error.incorrectInput' | t}}">
+								<bk-input id="idopenedOn"
+	                                name="openedOn"
+	                                state="{{ forms.details['openedOn'].$valid ? '' : 'error' }}"
+									ng-required="false"
+	                                ng-model="entity.openedOn"
+	                                ng-readonly="action === 'select'"
+	                                type="date">
+	                            </bk-input>
+							</bk-form-input-message>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idlastAccessTime" ng-required="false" colon="true">{{ 'codbex-sample-edm-bank-core:bankCore-model.t.ACCOUNT_LASTACCESSTIME' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col  fd-col-md--2 ">
+							<bk-form-input-message state="{{ forms.details['lastAccessTime'].$valid ? '' : 'error' }}" text="{{'codbex-sample-edm-bank-core:bankCore-model.messages.error.incorrectInput' | t}}">
+								<bk-input id="idlastAccessTime"
+	                                name="lastAccessTime"
+	                                state="{{ forms.details['lastAccessTime'].$valid ? '' : 'error' }}"
+									ng-required="false"
+	                                ng-model="entity.lastAccessTime"
+	                                ng-readonly="action === 'select'"
+	                                type="time">
+	                            </bk-input>
+							</bk-form-input-message>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idcreatedAt" ng-required="false" colon="true">{{ 'codbex-sample-edm-bank-core:bankCore-model.t.ACCOUNT_CREATEDAT' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col  fd-col-md--3 ">
+								<bk-input id="idcreatedAt"
+	                                name="createdAt"
+	                                ng-model="entity.createdAt"
+	                                ng-readonly="true"
+	                                type="datetime-local">
+	                            </bk-input>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idupdatedAt" ng-required="false" colon="true">{{ 'codbex-sample-edm-bank-core:bankCore-model.t.ACCOUNT_UPDATEDAT' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col  fd-col-md--3 ">
+								<bk-input id="idupdatedAt"
+	                                name="updatedAt"
+	                                ng-model="entity.updatedAt"
+	                                ng-readonly="true"
+	                                type="datetime-local">
+	                            </bk-input>
+	                    </div>
+                    </bk-form-item>
+                </bk-form-group>
+            </bk-fieldset>
+        </bk-scrollbar>
+
+		<bk-bar bar-design="footer" compact="true" ng-show="action !== 'select'">
+			<bk-bar-right>
+				<bk-bar-element>
+					<bk-button ng-if="action === 'create'" label="{{'codbex-sample-edm-bank-core:bankCore-model.defaults.create' | t}}" state="emphasized" ng-click="create()" ng-disabled="!forms.details.$valid"></bk-button>
+					<bk-button ng-if="action !== 'create'" label="{{'codbex-sample-edm-bank-core:bankCore-model.defaults.update' | t}}" state="emphasized" ng-click="update()" ng-disabled="!forms.details.$valid"></bk-button>
+				</bk-bar-element>
+				<bk-bar-element>
+					<bk-button label="{{ 'codbex-sample-edm-bank-core:bankCore-model.defaults.cancel' | t }}" ng-click="cancel()"></bk-button>
+				</bk-bar-element>
+			</bk-bar-right>
+		</bk-bar>
+		<theme></theme>
+    </body>
+
+</html>

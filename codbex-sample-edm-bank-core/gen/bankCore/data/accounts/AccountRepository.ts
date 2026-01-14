@@ -1,8 +1,10 @@
-import { Repository, EntityEvent, EntityConstructor } from '@aerokit/sdk/db';
-import { Producer } from '@aerokit/sdk/messaging';
-import { Extensions } from '@aerokit/sdk/extensions';
-import { AccountEntity } from './AccountEntity';
+import { Repository, EntityEvent, EntityConstructor } from '@aerokit/sdk/db'
+import { Component } from '@aerokit/sdk/component'
+import { Producer } from '@aerokit/sdk/messaging'
+import { Extensions } from '@aerokit/sdk/extensions'
+import { AccountEntity } from './AccountEntity'
 
+@Component('AccountRepository')
 export class AccountRepository extends Repository<AccountEntity> {
 
     constructor() {
