@@ -3,6 +3,7 @@ import { HttpUtils } from "@aerokit/sdk/http/utils";
 import { ValidationError } from '@aerokit/sdk/http/errors'
 import { Options } from '@aerokit/sdk/db'
 import { Extensions } from "@aerokit/sdk/extensions"
+import { Injected, Inject } from '@aerokit/sdk/component'
 import { CustomerRepository } from '../../data/customers/CustomerRepository'
 import { CustomerEntity } from '../../data/customers/CustomerEntity'
 
@@ -10,9 +11,11 @@ const validationModules = await Extensions.loadExtensionModules('codbex-sample-e
 
 @Controller
 @Documentation('codbex-sample-edm-bank-core - Customer Controller')
+@Injected()
 class CustomerController {
 
-    private readonly repository = new CustomerRepository();
+    @Inject('CustomerRepository')
+    private readonly repository!: CustomerRepository;
 
     @Get('/')
     @Documentation('Get All Customer')
