@@ -1,5 +1,12 @@
 {
     "guid": "codbex-sample-bpm-bank-core",
-    "dependencies": [],
+    "dependencies": [
+        {
+            "guid": "codbex-aws-clients",
+            "type": "git",
+            "url": "https://github.com/codbex/codbex-aws-clients.git",
+            "branch": "main"
+        }
+    ],
     "actions": []
 }

@@ -5,7 +5,7 @@ angular.module('total-accounts', ['blimpKit', 'platformView']).controller('total
         if (viewData && viewData.perspectiveId) Shell.showPerspective({ id: viewData.perspectiveId });
     };
 
-    $http.get('/services/ts/codbex-sample-edm-bank-core/gen/bankCore/api/Accounts/AccountService.ts/count')
+    $http.get('/services/ts/codbex-sample-edm-bank-core/gen/bankCore/api/accounts/AccountController.ts/count')
         .then((response) => {
             $scope.$evalAsync(() => {
                 $scope.totalAccounts = response.data.count;

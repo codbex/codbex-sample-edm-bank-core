@@ -5,7 +5,8 @@ angular.module('total-customers', ['blimpKit', 'platformView']).controller('tota
         if (viewData && viewData.perspectiveId) Shell.showPerspective({ id: viewData.perspectiveId });
     };
 
-    $http.get('/services/ts/codbex-sample-edm-bank-core/gen/bankCore/api/Customers/CustomerService.ts/count')
+
+    $http.get('/services/ts/codbex-sample-edm-bank-core/gen/bankCore/api/customers/CustomerController.ts/count')
         .then((response) => {
             $scope.$evalAsync(() => {
                 $scope.totalCustomers = response.data.count;
